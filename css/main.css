@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #8340e0;
+    background: #ac119c;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3261,6 +3261,24 @@ body {
 .post-meta,
 .post-meta span {
   color: rgba(180,180,200,0.7) !important;
+}
+.post-body table {
+  background: rgba(30,30,45,0.7) !important;
+  border-color: rgba(255,255,255,0.15) !important;
+  backdrop-filter: blur(8px);
+}
+.post-body table th {
+  background: rgba(40,40,60,0.8) !important;
+  color: #fff !important;
+  border-color: rgba(255,255,255,0.2) !important;
+}
+.post-body table td {
+  background: rgba(25,25,40,0.6) !important;
+  color: rgba(230,230,240,0.9) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.post-body table tr:hover td {
+  background: rgba(40,40,60,0.7) !important;
 }
 .sidebar-inner {
   background: rgba(20,20,35,0.85) !important;

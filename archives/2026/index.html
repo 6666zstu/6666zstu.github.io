@@ -355,13 +355,23 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const overlay = document.getElementById('welcome-overlay');
+  const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+  const hasSeenWelcome = sessionStorage.getItem('hasSeenWelcome');
+
+  // 如果不是首页，或者已经在本次会话中看过欢迎页，则直接移除
+  if (!isHomePage || hasSeenWelcome) {
+    if (overlay) overlay.remove();
+    return;
+  }
+
+  // 显示逻辑（点击进入博客后记录状态）
   const btn = document.getElementById('enter-blog-btn');
-  
   if (overlay && btn) {
     btn.onclick = function() {
       overlay.style.opacity = '0';
+      sessionStorage.setItem('hasSeenWelcome', 'true'); // 记录状态
       setTimeout(function() {
-        overlay.style.display = 'none';
+        overlay.remove();
       }, 800);
     };
   }

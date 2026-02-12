@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #8399ff;
+    background: #a818e8;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3188,50 +3188,127 @@ header.header {
   }
 }
 body {
-  background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80");
+  background-image: url("https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=1920&q=80");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
-.content-wrap,
-.content,
+body,
 .main,
 .main-inner,
+.content-wrap,
+.content,
 .column,
-.posts-expand,
-.post-block,
-.comments,
-.pagination,
-.footer,
-footer.footer,
-.sub-menu,
 .header,
 .header-inner,
-.site-brand-container {
+.site-brand-container,
+.footer,
+footer.footer,
+.pagination,
+.comments,
+.posts-expand,
+.sub-menu {
   background: transparent !important;
   background-color: transparent !important;
 }
 .post-block {
-  background: rgba(255,255,255,0.75) !important;
-  padding: 25px;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
-  margin-bottom: 20px;
+  background: rgba(20,20,35,0.75) !important;
+  padding: 30px;
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  margin-bottom: 24px;
+  border: 1px solid rgba(255,255,255,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .post-block:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(108,92,231,0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+}
+.post-body,
+.post-body p,
+.post-body li,
+.post-body td,
+.post-body th,
+.post-body blockquote {
+  color: rgba(230,230,240,0.9) !important;
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  color: #fff !important;
+}
+.post-body a {
+  color: #74b9ff !important;
+  border-bottom-color: rgba(116,185,255,0.3) !important;
+}
+.post-body a:hover {
+  color: #a29bfe !important;
+}
+.post-body blockquote {
+  border-left-color: rgba(162,155,254,0.5) !important;
+  background: rgba(255,255,255,0.04) !important;
+}
+.post-body table {
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.post-body table td,
+.post-body table th {
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.post-body hr {
+  background: rgba(255,255,255,0.1) !important;
+}
+.post-body strong {
+  color: #fff !important;
+}
+.post-title,
+.post-title-link {
+  color: #fff !important;
+  -webkit-text-fill-color: #fff !important;
+  background: none !important;
+}
+.post-title-link:hover {
+  color: #a29bfe !important;
+  -webkit-text-fill-color: #a29bfe !important;
+}
+.post-meta,
+.post-meta span,
+.post-meta a,
+.post-meta time {
+  color: rgba(180,180,200,0.7) !important;
+}
+.post-button .btn {
+  color: rgba(200,200,220,0.8) !important;
+  border-color: rgba(200,200,220,0.3) !important;
+  background: transparent !important;
+}
+.post-button .btn:hover {
+  color: #fff !important;
+  border-color: #a29bfe !important;
+  background: rgba(108,92,231,0.3) !important;
+}
+.pagination .page-number,
+.pagination a {
+  color: rgba(200,200,220,0.8) !important;
+}
+.pagination .page-number.current {
+  background: rgba(108,92,231,0.5) !important;
+  color: #fff !important;
 }
 .sidebar-inner {
-  background: rgba(40,40,60,0.85) !important;
-  border-radius: 12px;
-  backdrop-filter: blur(10px);
+  background: rgba(20,20,35,0.85) !important;
+  border-radius: 8px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 .sidebar a,
-.sidebar .menu-item a {
-  color: rgba(220,220,240,0.9) !important;
+.sidebar .menu-item a,
+.sidebar .site-state-item a {
+  color: rgba(220,220,240,0.85) !important;
 }
 .sidebar a:hover {
   color: #a29bfe !important;
@@ -3240,36 +3317,94 @@ footer.footer,
   color: #fff !important;
 }
 .site-description {
-  color: rgba(200,200,220,0.8) !important;
-}
-.footer-inner {
-  color: rgba(255,255,255,0.7);
-}
-.footer-inner a {
-  color: rgba(200,200,255,0.8) !important;
-}
-.footer-inner a:hover {
-  color: #fff !important;
-}
-.site-author-image {
-  border: 3px solid #6c5ce7;
-  transition: transform 0.8s ease;
-}
-.site-author-image:hover {
-  transform: rotate(360deg);
-}
-.post-title-link {
-  background: linear-gradient(135deg, #6c5ce7, #0984e3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: rgba(200,200,220,0.7) !important;
 }
 .site-title {
   color: #fff !important;
 }
 .site-subtitle {
+  color: rgba(200,200,220,0.6) !important;
+}
+.site-state-item-count {
+  color: #fff !important;
+}
+.site-state-item-name {
+  color: rgba(200,200,220,0.6) !important;
+}
+.cc-license-container a {
   color: rgba(200,200,220,0.7) !important;
 }
+.links-of-author a {
+  color: rgba(200,200,220,0.8) !important;
+}
+.menu-item a,
+.menu .menu-item a {
+  color: rgba(220,220,240,0.85) !important;
+}
+.menu-item a:hover,
+.menu-item-active a {
+  color: #a29bfe !important;
+}
+.menu .badge {
+  background: rgba(108,92,231,0.4) !important;
+  color: #fff !important;
+}
+.footer-inner {
+  color: rgba(220,220,240,0.6);
+}
+.footer-inner a {
+  color: rgba(200,200,255,0.7) !important;
+}
+.footer-inner a:hover {
+  color: #fff !important;
+}
+.site-author-image {
+  border: 3px solid rgba(108,92,231,0.7);
+  transition: transform 0.8s ease, border-color 0.3s ease;
+}
+.site-author-image:hover {
+  transform: rotate(360deg);
+  border-color: #a29bfe;
+}
+.search-popup {
+  background: rgba(20,20,35,0.95) !important;
+  backdrop-filter: blur(12px);
+}
+.search-popup .search-header,
+.search-popup input {
+  color: #fff !important;
+  background: rgba(255,255,255,0.08) !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+.search-popup .search-result-list a {
+  color: rgba(200,200,220,0.9) !important;
+}
+.post-body code {
+  background: rgba(255,255,255,0.08) !important;
+  color: #e0b0ff !important;
+  border-radius: 3px;
+}
 .page-post-detail .post-block {
-  background: rgba(255,255,255,0.8) !important;
+  background: rgba(20,20,35,0.75) !important;
+}
+.post-title-link::before {
+  background: rgba(108,92,231,0.5) !important;
+}
+.tag-cloud a {
+  color: rgba(200,200,220,0.8) !important;
+}
+.tag-cloud a:hover {
+  color: #a29bfe !important;
+}
+.category-list a {
+  color: rgba(200,200,220,0.8) !important;
+}
+.category-list a:hover {
+  color: #a29bfe !important;
+}
+.reading-progress-bar {
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe) !important;
+}
+.github-corner svg {
+  fill: rgba(108,92,231,0.6) !important;
 }

@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #ff4dff;
+    background: #ff77d7;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3195,15 +3195,33 @@ body {
   background-position: center;
 }
 .main-inner {
-  background: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.85);
   padding: 20px;
   border-radius: 12px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 }
 .sidebar-inner {
-  background: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.88);
   border-radius: 12px;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
+}
+.footer,
+footer.footer,
+.main,
+.content-wrap,
+.content,
+body {
+  background-color: transparent !important;
+}
+.footer-inner {
+  background: transparent !important;
+  color: rgba(255,255,255,0.75);
+}
+.footer-inner a {
+  color: rgba(200,200,255,0.85) !important;
+}
+.footer-inner a:hover {
+  color: #fff !important;
 }
 .site-author-image {
   border: 3px solid #6c5ce7;
@@ -3211,4 +3229,28 @@ body {
 }
 .site-author-image:hover {
   transform: rotate(360deg);
+}
+.post-title-link {
+  background: linear-gradient(135deg, #6c5ce7, #0984e3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.site-title {
+  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.post-block {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 10px;
+}
+.post-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108,92,231,0.15);
+}
+.header-inner {
+  background: rgba(255,255,255,0.88) !important;
+  backdrop-filter: blur(8px);
 }

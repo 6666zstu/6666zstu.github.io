@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #716cf6;
+    background: #8894ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3193,6 +3193,11 @@ body {
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+}
+:root {
+  --body-bg-color: transparent;
+  --content-bg-color: transparent;
+  --theme-color: #a29bfe;
 }
 body,
 .main,

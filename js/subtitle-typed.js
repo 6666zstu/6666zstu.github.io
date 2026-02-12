@@ -1,46 +1,52 @@
 // Typewriter effect for subtitle using Typed.js
-document.addEventListener('DOMContentLoaded', function() {
-  // Wait for the page to fully load
-  setTimeout(function() {
-    // Find the subtitle element (NexT theme usually uses .site-subtitle)
+document.addEventListener('DOMContentLoaded', function () {
+  // Wait for site to settle
+  setTimeout(function () {
+    // NexT theme uses .site-subtitle. We target it directly.
     var subtitleEl = document.querySelector('.site-subtitle');
-    
+
+    // Safety check: if not found by class, try id (some themes/plugins use id)
     if (!subtitleEl) {
-      // If not found, try other possible selectors
-      subtitleEl = document.querySelector('.subtitle');
+      subtitleEl = document.getElementById('subtitle');
     }
-    
+
     if (subtitleEl) {
-      // Clear existing content
-      subtitleEl.innerHTML = '<span id="subtitle-typed"></span>';
-      
-      // Load Typed.js if not already loaded
-      if (typeof Typed === 'undefined') {
-        var script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.min.js';
-        script.onload = function() {
-          initTyped();
-        };
-        document.head.appendChild(script);
-      } else {
-        initTyped();
-      }
+      console.log('Found subtitle element:', subtitleEl);
+      // Clear placeholder text immediately
+      subtitleEl.innerHTML = '';
+
+      // Create a span for Typed.js
+      var typedSpan = document.createElement('span');
+      typedSpan.id = 'subtitle-typed';
+      subtitleEl.appendChild(typedSpan);
+
+      // Initialize Typed.js
+      initTyped();
+    } else {
+      console.warn('Subtitle element not found! Typewriter effect cancelled.');
     }
-    
+
     function initTyped() {
+      if (typeof Typed === 'undefined') {
+        // Fallback if not loaded
+        console.error('Typed.js library not loaded.');
+        return;
+      }
+
       new Typed('#subtitle-typed', {
         strings: [
           '无限风光在险峰',
           '欲与天公试比高',
           '不管风吹浪打，胜似闲庭信步'
         ],
-        typeSpeed: 150,
+        typeSpeed: 100, // Faster typing
         backSpeed: 50,
         startDelay: 300,
         backDelay: 2000,
         loop: true,
         showCursor: true,
-        cursorChar: '|'
+        cursorChar: '|',
+        autoInsertCss: true
       });
     }
   }, 100);

@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #54c828;
+    background: #716cf6;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3188,7 +3188,7 @@ header.header {
   }
 }
 body {
-  background-image: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80");
+  background-image: url("/images/bg.jpg");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;

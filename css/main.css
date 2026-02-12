@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #ff77d7;
+    background: #8399ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3194,31 +3194,59 @@ body {
   background-size: cover;
   background-position: center;
 }
-.main-inner {
-  background: rgba(255,255,255,0.85);
-  padding: 20px;
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-}
-.sidebar-inner {
-  background: rgba(255,255,255,0.88);
-  border-radius: 12px;
-  backdrop-filter: blur(8px);
-}
-.footer,
-footer.footer,
-.main,
 .content-wrap,
 .content,
-body {
+.main,
+.main-inner,
+.column,
+.posts-expand,
+.post-block,
+.comments,
+.pagination,
+.footer,
+footer.footer,
+.sub-menu,
+.header,
+.header-inner,
+.site-brand-container {
+  background: transparent !important;
   background-color: transparent !important;
 }
+.post-block {
+  background: rgba(255,255,255,0.75) !important;
+  padding: 25px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.post-block:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(108,92,231,0.2);
+}
+.sidebar-inner {
+  background: rgba(40,40,60,0.85) !important;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+}
+.sidebar a,
+.sidebar .menu-item a {
+  color: rgba(220,220,240,0.9) !important;
+}
+.sidebar a:hover {
+  color: #a29bfe !important;
+}
+.site-author-name {
+  color: #fff !important;
+}
+.site-description {
+  color: rgba(200,200,220,0.8) !important;
+}
 .footer-inner {
-  background: transparent !important;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.7);
 }
 .footer-inner a {
-  color: rgba(200,200,255,0.85) !important;
+  color: rgba(200,200,255,0.8) !important;
 }
 .footer-inner a:hover {
   color: #fff !important;
@@ -3237,20 +3265,11 @@ body {
   background-clip: text;
 }
 .site-title {
-  background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #fff !important;
 }
-.post-block {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 10px;
+.site-subtitle {
+  color: rgba(200,200,220,0.7) !important;
 }
-.post-block:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(108,92,231,0.15);
-}
-.header-inner {
-  background: rgba(255,255,255,0.88) !important;
-  backdrop-filter: blur(8px);
+.page-post-detail .post-block {
+  background: rgba(255,255,255,0.8) !important;
 }

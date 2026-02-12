@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #ffff9f;
+    background: #24403e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3297,4 +3297,69 @@ body {
 }
 .footer-inner a {
   color: rgba(200,200,255,0.7) !important;
+}
+#welcome-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #0b0e14;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.8s ease-in-out;
+}
+.welcome-content {
+  text-align: center;
+  color: #fff;
+  animation: fadeInDown 1.2s ease-out;
+}
+.welcome-top {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: rgba(255,255,255,0.8);
+}
+.welcome-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #a29bfe, #74b9ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+.welcome-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 3rem;
+  letter-spacing: 2px;
+}
+#enter-blog-btn {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  background: transparent;
+  color: #a29bfe;
+  border: 2px solid #a29bfe;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  outline: none;
+}
+#enter-blog-btn:hover {
+  background: #a29bfe;
+  color: #fff;
+  box-shadow: 0 0 20px rgba(162,155,254,0.5);
+  transform: translateY(-3px);
+}
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

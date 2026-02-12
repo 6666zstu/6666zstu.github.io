@@ -324,6 +324,30 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<div id="welcome-overlay">
+  <div class="welcome-content">
+    <div class="welcome-top">👋 欢迎你来到</div>
+    <h1 class="welcome-title">LCS 的数学与人工智能世界</h1>
+    <p class="welcome-subtitle">探索数学之美，拥抱 AI 未来</p>
+    <button id="enter-blog-btn">进入博客 →</button>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const overlay = document.getElementById('welcome-overlay');
+  const btn = document.getElementById('enter-blog-btn');
+  
+  if (overlay && btn) {
+    btn.onclick = function() {
+      overlay.style.opacity = '0';
+      setTimeout(function() {
+        overlay.style.display = 'none';
+      }, 800);
+    };
+  }
+});
+</script>
 
 </body>
 </html>

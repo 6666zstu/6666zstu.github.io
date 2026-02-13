@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #99ff25;
+    background: #30ff77;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3275,25 +3275,22 @@ body {
   color: #fff;
   box-shadow: 0 0 20px rgba(162,155,254,0.5);
 }
-#poem-widget {
-  position: fixed;
-  left: 30px;
-  bottom: 30px;
+#sidebar-poem {
+  margin-top: 15px;
   padding: 20px;
-  background: rgba(20,20,35,0.4);
+  background: rgba(20,20,35,0.6) !important;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 12px;
-  color: rgba(255,255,255,0.85);
+  border-radius: 8px;
+  color: rgba(220,220,240,0.9);
   font-family: 'Outfit', "PingFang SC", sans-serif;
-  z-index: 100;
-  pointer-events: none;
-  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  text-align: center;
 }
 .poem-line {
-  font-size: 0.95rem;
-  line-height: 1.8;
+  font-size: 0.9rem;
+  line-height: 2;
   letter-spacing: 1px;
 }
 @keyframes fadeInDown {

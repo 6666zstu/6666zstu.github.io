@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #00ffcf;
+    background: #6294ff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3438,6 +3438,18 @@ body {
 .tag-cloud-title,
 .about-post-title {
   display: none !important;
+}
+.page-about .post-block {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  padding: 0 !important;
+}
+.page-about .post-header {
+  display: none !important;
+}
+.page-about .main-inner {
+  padding-top: 0 !important;
 }
 @keyframes fadeInDown {
   from {

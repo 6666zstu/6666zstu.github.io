@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #797dcb;
+    background: #5505f5;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3307,13 +3307,6 @@ body {
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   color: #e0e0e0 !important;
 }
-.site-nav,
-.menu,
-.header,
-.header-inner,
-.site-brand-container {
-  background: transparent !important;
-}
 .post-title,
 .post-body,
 .collection-header,
@@ -3324,8 +3317,22 @@ body {
 .site-subtitle {
   color: #eee !important;
 }
+.site-nav,
+.menu,
+.menu-item,
+.menu-item a,
+.header,
+.header-inner,
+.site-brand-container,
+.sidebar-nav,
+.sidebar-nav-active,
+.sidebar-panel-container {
+  background: transparent !important;
+}
 .menu-item-active a,
-.menu-item a:hover {
+.menu-item-active,
+.menu-item a:hover,
+.menu-item:hover {
   background: rgba(255,255,255,0.1) !important;
   color: #a29bfe !important;
   border-radius: 4px;

@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #0eaa5c;
+    background: #5dfffe;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3452,35 +3452,38 @@ body {
   padding-top: 0 !important;
 }
 .post-copyright {
-  background: rgba(30,30,45,0.8) !important;
-  border-left: 3px solid #ff6b81 !important;
-  backdrop-filter: blur(15px) !important;
-  -webkit-backdrop-filter: blur(15px) !important;
+  background: #1c1c28 !important;
+  background-color: #1c1c28 !important;
+  border-left: 3px solid #ff6348 !important;
   border-radius: 12px !important;
-  margin-top: 30px !important;
-  padding: 1.5rem !important;
-  color: #eee !important;
-  font-size: 0.9rem !important;
+  margin: 20px 0 !important;
+  padding: 20px !important;
+  color: #f1f2f6 !important;
+  font-size: 14px !important;
+  list-style: none !important;
   border: 1px solid rgba(255,255,255,0.1) !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3) !important;
 }
-.post-copyright:hover {
-  background: rgba(40,40,60,0.9) !important;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5) !important;
-}
-.post-copyright a {
-  color: #a29bfe !important;
-  border-bottom: 2px solid rgba(162,155,254,0.4) !important;
-  font-weight: bold;
-}
-.post-copyright a:hover {
-  color: #74b9ff !important;
-  border-bottom-color: #74b9ff !important;
+.post-copyright li {
+  background: transparent !important;
+  background-color: transparent !important;
+  margin: 5px 0 !important;
+  padding: 0 !important;
+  color: #f1f2f6 !important;
 }
 .post-copyright span,
 .post-copyright strong {
+  color: #eccc68 !important;
+  font-weight: bold !important;
+}
+.post-copyright a {
+  color: #70a1ff !important;
+  text-decoration: none !important;
+  border-bottom: 1px dashed #70a1ff !important;
+}
+.post-copyright a:hover {
   color: #ffa502 !important;
-  font-weight: bold;
+  border-bottom: 1px solid #ffa502 !important;
 }
 @keyframes fadeInDown {
   from {

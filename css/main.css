@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #6294ff;
+    background: #f57a01;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3450,6 +3450,34 @@ body {
 }
 .page-about .main-inner {
   padding-top: 0 !important;
+}
+.post-copyright {
+  background: rgba(255,255,255,0.05) !important;
+  border-left: 3px solid #ff6b81 !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 8px;
+  margin-top: 30px;
+  padding: 15px 20px;
+  color: rgba(255,255,255,0.6) !important;
+  font-size: 0.85rem;
+  transition: all 0.3s ease;
+}
+.post-copyright:hover {
+  background: rgba(255,255,255,0.1) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.post-copyright a {
+  color: #a29bfe !important;
+  border-bottom: 1px solid rgba(162,155,254,0.3) !important;
+}
+.post-copyright a:hover {
+  color: #74b9ff !important;
+  border-bottom-color: #74b9ff !important;
+}
+.post-copyright span {
+  color: rgba(255,255,255,0.8) !important;
 }
 @keyframes fadeInDown {
   from {

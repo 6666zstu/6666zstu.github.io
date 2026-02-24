@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/#6c5ce7/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"6666zstu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#6c5ce7","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="执行摘要期望驱动的智能体开发（Expectation Driven Agentic Development，EDAD）是一套为 AI 时代设计的软件开发方法论：人类开发者与 AI 智能体协同构建复杂系统。与传统“先写规格&#x2F;需求、再按规格实现”的路径不同，EDAD 把重心放在**期望（Expectation）**上——你对“系统完成后用起来会是什么感觉、会如何表现”的清晰想象。 该方法论来">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向 AI 时代的创新编程方法论">
+<meta property="og:url" content="https://6666zstu.github.io/2026/02/24/%E9%9D%A2%E5%90%91-AI-%E6%97%B6%E4%BB%A3%E7%9A%84%E5%88%9B%E6%96%B0%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95%E8%AE%BA/index.html">
+<meta property="og:site_name" content="LCS 的数学与 AI 世界">
+<meta property="og:description" content="执行摘要期望驱动的智能体开发（Expectation Driven Agentic Development，EDAD）是一套为 AI 时代设计的软件开发方法论：人类开发者与 AI 智能体协同构建复杂系统。与传统“先写规格&#x2F;需求、再按规格实现”的路径不同，EDAD 把重心放在**期望（Expectation）**上——你对“系统完成后用起来会是什么感觉、会如何表现”的清晰想象。 该方法论来">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:54:26.000Z">
+<meta property="article:modified_time" content="2026-02-24T03:58:44.440Z">
+<meta property="article:author" content="LCS">
+<meta property="article:tag" content="人工智能">
+<meta property="article:tag" content="数学">
+<meta property="article:tag" content="深度学习">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://6666zstu.github.io/2026/02/24/%E9%9D%A2%E5%90%91-AI-%E6%97%B6%E4%BB%A3%E7%9A%84%E5%88%9B%E6%96%B0%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95%E8%AE%BA/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://6666zstu.github.io/2026/02/24/%E9%9D%A2%E5%90%91-AI-%E6%97%B6%E4%BB%A3%E7%9A%84%E5%88%9B%E6%96%B0%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95%E8%AE%BA/","path":"2026/02/24/面向-AI-时代的创新编程方法论/","title":"面向 AI 时代的创新编程方法论"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>面向 AI 时代的创新编程方法论 | LCS 的数学与 AI 世界</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/bookmark.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js" defer></script>
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">LCS 的数学与 AI 世界</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">Mathematics & Artificial Intelligence</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%91%98%E8%A6%81"><span class="nav-number">1.</span> <span class="nav-text">执行摘要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E5%93%B2%E5%AD%A6"><span class="nav-number">2.</span> <span class="nav-text">核心哲学</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%8E-Vibe-Coding-%E5%88%B0-Agentic-Coding"><span class="nav-number">2.1.</span> <span class="nav-text">从 Vibe Coding 到 Agentic Coding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E5%AE%9A%E4%B9%89"><span class="nav-number">2.2.</span> <span class="nav-text">关键定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EDAD-%E5%BE%AA%E7%8E%AF%EF%BC%88EDAD-Loop%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">EDAD 循环（EDAD Loop）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%9B%AE%E6%A0%87-%E2%86%92-%E6%83%B3%E8%B1%A1%EF%BC%88%E6%8E%A2%E7%B4%A2%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-number">3.1.</span> <span class="nav-text">1. 目标 → 想象（探索阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%83%B3%E8%B1%A1-%E2%86%92-%E6%9C%9F%E6%9C%9B%EF%BC%88%E6%94%B6%E6%95%9B-%E5%88%A9%E7%94%A8%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-number">3.2.</span> <span class="nav-text">2. 想象 → 期望（收敛&#x2F;利用阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9C%9F%E6%9C%9B-%E2%86%92-%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82%EF%BC%88%E9%97%AE%E9%A2%98%E6%B1%82%E8%A7%A3%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-number">3.3.</span> <span class="nav-text">3. 期望 → 实现细节（问题求解阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%99%BA%E8%83%BD%E4%BD%93%E5%BC%8F%E7%BC%96%E7%A0%81%EF%BC%88%E5%AE%9E%E7%8E%B0%E9%98%B6%E6%AE%B5%EF%BC%89"><span class="nav-number">3.4.</span> <span class="nav-text">4. 智能体式编码（实现阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-%E9%AA%8C%E8%AF%81%E4%B8%8E%E4%BF%AE%E5%A4%8D"><span class="nav-number">3.5.</span> <span class="nav-text">5. 验证与修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-%E6%9B%B4%E6%96%B0%E6%9C%9F%E6%9C%9B%EF%BC%88%E6%8C%81%E7%BB%AD%E6%94%B9%E8%BF%9B%EF%BC%89"><span class="nav-number">3.6.</span> <span class="nav-text">6. 更新期望（持续改进）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%90%E5%8A%9F%E7%9A%84%E5%85%B3%E9%94%AE"><span class="nav-number">4.</span> <span class="nav-text">成功的关键</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%B8%80%E6%AC%A1%E6%83%B3%E8%B1%A1%E5%AF%B9%E5%BA%94%E5%A4%9A%E4%B8%AA%E6%9C%9F%E6%9C%9B"><span class="nav-number">4.1.</span> <span class="nav-text">1. 一次想象对应多个期望</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E6%83%B3%E8%B1%A1%E9%98%B6%E6%AE%B5%E7%9A%84%E5%85%B3%E6%B3%A8%E7%82%B9"><span class="nav-number">4.2.</span> <span class="nav-text">2. 想象阶段的关注点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8A%A8%E6%80%81%E6%9C%9F%E6%9C%9B%E7%AE%A1%E7%90%86"><span class="nav-number">4.3.</span> <span class="nav-text">3. 动态期望管理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E2%80%9C%E4%B8%AA%E4%BA%BA%E6%BB%A1%E8%B6%B3%E6%84%9F%E2%80%9D%E6%98%AF%E6%9C%80%E5%85%B3%E9%94%AE%E6%8C%87%E6%A0%87"><span class="nav-number">5.</span> <span class="nav-text">为什么“个人满足感”是最关键指标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E2%80%94%E6%BB%A1%E8%B6%B3%E6%84%9F%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="nav-number">5.1.</span> <span class="nav-text">期望—满足感的连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%A1%E8%B6%B3%E6%84%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BC%9A%E8%BF%99%E4%B9%88%E5%BC%BA"><span class="nav-number">5.2.</span> <span class="nav-text">满足感为什么会这么强</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%8A%E6%BB%A1%E8%B6%B3%E6%84%9F%E5%BD%93%E4%BD%9C%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="nav-number">5.3.</span> <span class="nav-text">把满足感当作开发工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%88%E7%8E%87%E2%80%94%E6%BB%A1%E8%B6%B3%E6%84%9F%E5%85%B3%E7%B3%BB"><span class="nav-number">5.4.</span> <span class="nav-text">效率—满足感关系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9E%E7%94%A8%E5%BB%BA%E8%AE%AE"><span class="nav-number">5.5.</span> <span class="nav-text">实用建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF"><span class="nav-number">6.</span> <span class="nav-text">优势</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%8D%95%E4%BA%BA-AI-%E7%9A%84%E7%94%9F%E4%BA%A7%E5%8A%9B%E4%B9%98%E6%95%B0%EF%BC%88%E6%95%88%E7%8E%87%EF%BC%89"><span class="nav-number">6.1.</span> <span class="nav-text">1. 单人 + AI 的生产力乘数（效率）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E8%99%9A%E6%8B%9F%E5%AE%9E%E9%AA%8C%E5%AE%A4%E4%B8%8E%E8%BF%9C%E7%A8%8B%E4%BC%98%E5%85%88%E5%8D%8F%E4%BD%9C"><span class="nav-number">6.2.</span> <span class="nav-text">2. 虚拟实验室与远程优先协作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E5%8F%AF%E6%89%A9%E5%B1%95%E7%9A%84%E5%9B%A2%E9%98%9F%E7%BB%93%E6%9E%84"><span class="nav-number">6.3.</span> <span class="nav-text">3. 可扩展的团队结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%B8%85%E6%99%B0%E7%9A%84%E8%B4%A3%E4%BB%BB%E8%BE%B9%E7%95%8C"><span class="nav-number">6.4.</span> <span class="nav-text">4. 清晰的责任边界</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%BA%E7%82%B9%E4%B8%8E%E5%B1%80%E9%99%90"><span class="nav-number">7.</span> <span class="nav-text">缺点与局限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E5%AF%B9%E5%BC%80%E5%8F%91%E8%80%85%E8%A6%81%E6%B1%82%E9%AB%98"><span class="nav-number">7.1.</span> <span class="nav-text">1. 对开发者要求高</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E9%A1%B9%E7%9B%AE%E4%B8%AD%E9%80%94%E4%BA%A4%E6%8E%A5%E5%9B%B0%E9%9A%BE"><span class="nav-number">7.2.</span> <span class="nav-text">2. 项目中途交接困难</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E9%9C%80%E8%A6%81%E6%9E%81%E5%BC%BA%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="nav-number">7.3.</span> <span class="nav-text">3. 需要极强的模块化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E4%BE%9D%E8%B5%96-AI-%E8%83%BD%E5%8A%9B"><span class="nav-number">7.4.</span> <span class="nav-text">4. 依赖 AI 能力</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9E%E6%93%8D%E6%8C%87%E5%8D%97"><span class="nav-number">8.</span> <span class="nav-text">实操指南</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84-EDAD-%E7%8E%AF%E5%A2%83"><span class="nav-number">8.1.</span> <span class="nav-text">搭建你的 EDAD 环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%9F%E6%9C%9B%E6%96%87%E6%A1%A3%E6%A8%A1%E6%9D%BF"><span class="nav-number">8.2.</span> <span class="nav-text">期望文档模板</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E5%B1%82-EDAD-%E5%BE%AA%E7%8E%AF%EF%BC%88Hierarchical-EDAD-Loops%EF%BC%89"><span class="nav-number">8.3.</span> <span class="nav-text">分层 EDAD 循环（Hierarchical EDAD Loops）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E5%B1%82%E7%BB%93%E6%9E%84"><span class="nav-number">8.3.1.</span> <span class="nav-text">分层结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A5%E8%87%AA%E7%9C%9F%E5%AE%9E%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%AE%9E%E8%B7%B5%E4%BE%8B%E5%AD%90"><span class="nav-number">8.3.2.</span> <span class="nav-text">来自真实项目的实践例子</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B3%E9%94%AE%E7%89%B9%E5%BE%81"><span class="nav-number">8.3.3.</span> <span class="nav-text">关键特征</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E8%AE%BA%E5%AF%B9%E6%AF%94"><span class="nav-number">9.</span> <span class="nav-text">与传统方法论对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B9%E6%9C%AC%E5%B7%AE%E5%BC%82%EF%BC%9A%E5%85%B3%E6%B3%A8%E2%80%9C%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B%E2%80%9D"><span class="nav-number">9.1.</span> <span class="nav-text">根本差异：关注“心智模型”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BA%BA%E7%B1%BB%E6%97%A0%E6%B3%95%E9%A2%84%E6%B5%8B%E5%AE%9E%E7%8E%B0%E6%97%B6%E9%97%B4"><span class="nav-number">9.2.</span> <span class="nav-text">为什么人类无法预测实现时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%99%E5%AF%B9%E6%96%B9%E6%B3%95%E8%AE%BA%E9%80%89%E6%8B%A9%E6%84%8F%E5%91%B3%E7%9D%80%E4%BB%80%E4%B9%88"><span class="nav-number">9.3.</span> <span class="nav-text">这对方法论选择意味着什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E2%80%9C%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B%E2%80%9D%E5%85%B3%E6%B3%A8%E4%B8%BA%E4%BD%95%E8%83%BD%E5%B8%A6%E6%9D%A5%E6%95%88%E7%8E%87"><span class="nav-number">9.4.</span> <span class="nav-text">“心智模型”关注为何能带来效率</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8E%E4%BC%A0%E7%BB%9F%E6%96%B9%E6%B3%95%E8%AE%BA%E5%AF%B9%E6%AF%94%EF%BC%88%E6%9B%B4%E5%85%B7%E4%BD%93%EF%BC%89"><span class="nav-number">10.</span> <span class="nav-text">与传统方法论对比（更具体）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vs-%E7%80%91%E5%B8%83%EF%BC%88Waterfall%EF%BC%89"><span class="nav-number">10.1.</span> <span class="nav-text">vs. 瀑布（Waterfall）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vs-%E6%95%8F%E6%8D%B7-Scrum"><span class="nav-number">10.2.</span> <span class="nav-text">vs. 敏捷&#x2F; Scrum</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vs-%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%EF%BC%88TDD%EF%BC%89"><span class="nav-number">10.3.</span> <span class="nav-text">vs. 测试驱动开发（TDD）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vs-%E9%A2%86%E5%9F%9F%E9%A9%B1%E5%8A%A8%E8%AE%BE%E8%AE%A1%EF%BC%88DDD%EF%BC%89"><span class="nav-number">10.4.</span> <span class="nav-text">vs. 领域驱动设计（DDD）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B0%81%E9%80%82%E5%90%88%E7%94%A8-EDAD"><span class="nav-number">11.</span> <span class="nav-text">谁适合用 EDAD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%90%86%E6%83%B3%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="nav-number">11.1.</span> <span class="nav-text">理想适用场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E8%99%9A%E6%8B%9F%E5%AE%9E%E9%AA%8C%E5%AE%A4-%E5%85%A8%E8%BF%9C%E7%A8%8B%E7%BB%84%E7%BB%87"><span class="nav-number">11.1.1.</span> <span class="nav-text">1) 虚拟实验室 &#x2F; 全远程组织</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%BF%BD%E6%B1%82%E9%80%9F%E5%BA%A6%E4%BD%86%E4%B8%8D%E9%9C%80%E8%A6%81%E5%9B%BA%E5%AE%9A%E6%8E%92%E6%9C%9F%E7%9A%84%E5%88%9B%E4%B8%9A%E5%9B%A2%E9%98%9F"><span class="nav-number">11.1.2.</span> <span class="nav-text">2) 追求速度但不需要固定排期的创业团队</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E7%A0%94%E7%A9%B6%E5%9E%8B%E5%BC%80%E5%8F%91"><span class="nav-number">11.1.3.</span> <span class="nav-text">3) 研究型开发</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%BC%80%E6%BA%90%E7%A4%BE%E5%8C%BA%E9%A1%B9%E7%9B%AE"><span class="nav-number">11.1.4.</span> <span class="nav-text">4) 开源社区项目</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E6%8E%A8%E8%8D%90%E7%9A%84%E5%9C%BA%E6%99%AF"><span class="nav-number">11.2.</span> <span class="nav-text">不推荐的场景</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E5%8F%AF%E9%A2%84%E6%B5%8B%E6%97%B6%E9%97%B4%E7%BA%BF%E7%9A%84%E9%A1%B9%E7%9B%AE%EF%BC%88%E6%B3%A8%E6%84%8F%EF%BC%9A%E4%B8%8D%E6%98%AF%E2%80%9C%E9%9C%80%E8%A6%81%E6%9B%B4%E5%BF%AB%E2%80%9D%EF%BC%89"><span class="nav-number">11.2.1.</span> <span class="nav-text">需要可预测时间线的项目（注意：不是“需要更快”）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9C%80%E8%A6%81%E7%B4%A7%E5%AF%86%E5%8D%8F%E8%B0%83%E7%9A%84%E9%A1%B9%E7%9B%AE"><span class="nav-number">11.2.2.</span> <span class="nav-text">需要紧密协调的项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%86%E5%9F%9F%E6%96%B0%E6%89%8B"><span class="nav-number">11.2.3.</span> <span class="nav-text">领域新手</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8-EDAD"><span class="nav-number">12.</span> <span class="nav-text">开始使用 EDAD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%89%8D%E7%BD%AE%E6%9D%A1%E4%BB%B6"><span class="nav-number">12.1.</span> <span class="nav-text">前置条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%A0%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA-EDAD-%E9%A1%B9%E7%9B%AE"><span class="nav-number">12.2.</span> <span class="nav-text">你的第一个 EDAD 项目</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC-1-%E6%AD%A5%EF%BC%9A%E9%80%89%E5%AF%B9%E9%A1%B9%E7%9B%AE"><span class="nav-number">12.2.1.</span> <span class="nav-text">第 1 步：选对项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC-2-%E6%AD%A5%EF%BC%9A%E6%90%AD%E7%8E%AF%E5%A2%83"><span class="nav-number">12.2.2.</span> <span class="nav-text">第 2 步：搭环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC-3-%E6%AD%A5%EF%BC%9A%E8%B7%91%E4%B8%80%E8%BD%AE%E5%BE%AA%E7%8E%AF"><span class="nav-number">12.2.3.</span> <span class="nav-text">第 3 步：跑一轮循环</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC-4-%E6%AD%A5%EF%BC%9A%E6%9E%84%E5%BB%BA%E6%9C%9F%E6%9C%9B%E5%BA%93"><span class="nav-number">12.2.4.</span> <span class="nav-text">第 4 步：构建期望库</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E6%89%8B%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF"><span class="nav-number">12.3.</span> <span class="nav-text">新手常见错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A1%E9%87%8F%E6%88%90%E5%8A%9F"><span class="nav-number">12.4.</span> <span class="nav-text">衡量成功</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E8%B7%AF%E5%BE%84"><span class="nav-number">12.5.</span> <span class="nav-text">进阶路径</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EDAD-%E7%9A%84%E6%9C%AA%E6%9D%A5"><span class="nav-number">13.</span> <span class="nav-text">EDAD 的未来</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%91%E6%9C%9F"><span class="nav-number">13.1.</span> <span class="nav-text">近期</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%95%BF%E6%9C%9F"><span class="nav-number">13.2.</span> <span class="nav-text">长期</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">14.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E8%BF%99%E5%A5%97%E6%96%B9%E6%B3%95%E8%AE%BA"><span class="nav-number">15.</span> <span class="nav-text">关于这套方法论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%84%E5%BD%95-A%EF%BC%9A%E7%9C%9F%E5%AE%9E%E6%A1%88%E4%BE%8B%E2%80%94%E2%80%94KohakuHub-%E7%94%9F%E6%80%81"><span class="nav-number">16.</span> <span class="nav-text">附录 A：真实案例——KohakuHub 生态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A6%82%E8%A7%88"><span class="nav-number">16.1.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E7%B3%BB%E7%BB%9F"><span class="nav-number">16.2.</span> <span class="nav-text">三个系统</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-KohakuHub%EF%BC%88%E7%BA%A6-6%E2%80%937-%E4%B8%87%E8%A1%8C%EF%BC%89"><span class="nav-number">16.2.1.</span> <span class="nav-text">1. KohakuHub（约 6–7 万行）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-KohakuBoard%EF%BC%88%E7%BA%A6-3%E2%80%934-%E4%B8%87%E8%A1%8C%EF%BC%89"><span class="nav-number">16.2.2.</span> <span class="nav-text">2. KohakuBoard（约 3–4 万行）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-KohakuVault%EF%BC%88%E7%BA%A6-1-5%E2%80%932-%E4%B8%87%E8%A1%8C%EF%BC%89"><span class="nav-number">16.2.3.</span> <span class="nav-text">3. KohakuVault（约 1.5–2 万行）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BA%A7-EDAD-%E5%BE%AA%E7%8E%AF"><span class="nav-number">16.3.</span> <span class="nav-text">项目级 EDAD 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%A8%E5%B1%80%E6%83%B3%E8%B1%A1%EF%BC%88%E5%A4%9A%E5%B9%B4%EF%BC%89"><span class="nav-number">16.3.1.</span> <span class="nav-text">全局想象（多年）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B9%E7%9B%AE%E7%BA%A7%E6%9C%9F%E6%9C%9B%EF%BC%88%E6%95%B0%E6%9C%88%EF%BC%89"><span class="nav-number">16.3.2.</span> <span class="nav-text">项目级期望（数月）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A8%A1%E5%9D%97%E7%BA%A7%E5%BE%AA%E7%8E%AF%EF%BC%88%E5%B9%B6%E8%A1%8C%EF%BC%89"><span class="nav-number">16.3.3.</span> <span class="nav-text">模块级循环（并行）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%9F%E8%83%BD%E7%BA%A7%E7%A4%BA%E4%BE%8B"><span class="nav-number">16.3.4.</span> <span class="nav-text">功能级示例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%82%E5%AF%9F%E5%88%B0%E7%9A%84%E5%85%B3%E9%94%AE-EDAD-%E6%A8%A1%E5%BC%8F"><span class="nav-number">16.4.</span> <span class="nav-text">观察到的关键 EDAD 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-%E6%9C%9F%E6%9C%9B%E7%BA%A7%E8%81%94%EF%BC%88Expectation-Cascade%EF%BC%89"><span class="nav-number">16.4.1.</span> <span class="nav-text">1) 期望级联（Expectation Cascade）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-%E8%B7%A8%E6%A8%A1%E5%9D%97%E4%BE%9D%E8%B5%96"><span class="nav-number">16.4.2.</span> <span class="nav-text">2) 跨模块依赖</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-%E6%9C%9F%E6%9C%9B%E6%BC%94%E8%BF%9B"><span class="nav-number">16.4.3.</span> <span class="nav-text">3) 期望演进</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-%E5%BE%AA%E7%8E%AF%E6%97%B6%E9%95%BF%E5%8F%AF%E5%8F%98"><span class="nav-number">16.4.4.</span> <span class="nav-text">4) 循环时长可变</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E6%9E%9C%E4%B8%8E%E5%BD%B1%E5%93%8D"><span class="nav-number">16.5.</span> <span class="nav-text">结果与影响</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%8F%E9%AA%8C%E6%95%99%E8%AE%AD"><span class="nav-number">16.6.</span> <span class="nav-text">经验教训</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="LCS"
+      src="https://github.com/6666zstu.png">
+  <p class="site-author-name" itemprop="name">LCS</p>
+  <div class="site-description" itemprop="description">探索数学与人工智能的无限可能</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/6666zstu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;6666zstu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="tencent://message/?uin=1785660196" title="QQ → tencent:&#x2F;&#x2F;message&#x2F;?uin&#x3D;1785660196" rel="noopener me" target="_blank"><i class="fab fa-qq fa-fw"></i>QQ</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:1785660196@qq.com" title="E-Mail → mailto:1785660196@qq.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+<div id="sidebar-poem">
+  <div class="poem-line">雄关漫道真如铁，</div>
+  <div class="poem-line">而今迈步从头越。</div>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://6666zstu.github.io/2026/02/24/%E9%9D%A2%E5%90%91-AI-%E6%97%B6%E4%BB%A3%E7%9A%84%E5%88%9B%E6%96%B0%E7%BC%96%E7%A8%8B%E6%96%B9%E6%B3%95%E8%AE%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://github.com/6666zstu.png">
+      <meta itemprop="name" content="LCS">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LCS 的数学与 AI 世界">
+      <meta itemprop="description" content="探索数学与人工智能的无限可能">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="面向 AI 时代的创新编程方法论 | LCS 的数学与 AI 世界">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面向 AI 时代的创新编程方法论
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2026-02-24 11:54:26 / 修改时间：11:58:44" itemprop="dateCreated datePublished" datetime="2026-02-24T11:54:26+08:00">2026-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>11k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>39 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="执行摘要"><a href="#执行摘要" class="headerlink" title="执行摘要"></a>执行摘要</h2><p>期望驱动的智能体开发（Expectation Driven Agentic Development，EDAD）是一套为 AI 时代设计的软件开发方法论：人类开发者与 AI 智能体协同构建复杂系统。与传统“先写规格&#x2F;需求、再按规格实现”的路径不同，EDAD 把重心放在**期望（Expectation）**上——你对“系统完成后用起来会是什么感觉、会如何表现”的清晰想象。</p>
+<p>该方法论来自真实经验：一位开发者借助 AI 智能体，在两个月内构建了三个可投入生产、彼此互联的系统，总代码量 10 万行以上，相当于做出一套 HuggingFace + WandB 生态的完整替代方案。</p>
+<span id="more"></span>
+
+<hr>
+<h2 id="核心哲学"><a href="#核心哲学" class="headerlink" title="核心哲学"></a>核心哲学</h2><h3 id="从-Vibe-Coding-到-Agentic-Coding"><a href="#从-Vibe-Coding-到-Agentic-Coding" class="headerlink" title="从 Vibe Coding 到 Agentic Coding"></a>从 Vibe Coding 到 Agentic Coding</h3><p><strong>Vibe Coding（凭感觉写代码）：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;目标&gt;: 我想做一个价格监控系统</span><br></pre></td></tr></table></figure>
+<p>这能提供方向，但对“你真正期待它如何工作”缺乏清晰描述，AI 智能体只能猜测你的意图，输出就更容易跑偏。</p>
+<p><strong>Agentic Coding（智能体式编码）：</strong></p>
+<p><strong>示例 1：价格监控系统</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;期望&gt;: </span><br><span class="line">做一个价格追踪系统，能跨多个电商站点监控商品价格。用户应该可以：</span><br><span class="line">- 通过 URL 添加商品</span><br><span class="line">- 设置降价提醒阈值</span><br><span class="line">- 当价格低于阈值时收到通知</span><br><span class="line">- 以交互式图表查看价格历史</span><br><span class="line">- 系统应每 6 小时检查一次价格，且不阻塞主流程</span><br><span class="line"></span><br><span class="line">&lt;实现细节&gt;:</span><br><span class="line">- 用 Playwright 抓取网页（可处理动态 JS 渲染页面）</span><br><span class="line">- 用 SQLite 存储数据，分别建 products、price_history、alerts 三张表</span><br><span class="line">- 用 APScheduler 做周期任务（非阻塞后台作业）</span><br><span class="line">- 图表渲染用 Chart.js，展示 90 天价格历史</span><br><span class="line">- 限流：同一域名最多每 5 秒 1 次请求</span><br><span class="line"></span><br><span class="line">&lt;约束&gt;:</span><br><span class="line">- 抓取代码必须优雅处理网络故障（重试 3 次，指数退避）</span><br><span class="line">- 遵守每个域名的 robots.txt</span><br><span class="line">- 代码必须用 async/await 风格（不写回调）</span><br><span class="line">- 使用 Python 3.10+，全程加类型注解</span><br><span class="line">- 所有面向用户的文本都用英文</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：文档处理流水线</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&lt;期望&gt;:</span><br><span class="line">处理用户上传的 PDF：提取文本、图片和表格。用户通过网页上传，</span><br><span class="line">系统在后台处理并展示进度，允许用户下载提取结果。处理需要支持：</span><br><span class="line">- 多页 PDF（最多 100 页）</span><br><span class="line">- 混合内容（文本 + 图片 + 表格）</span><br><span class="line">- 低质量扫描件（需要时使用 OCR）</span><br><span class="line">- 多个并发上传且不会明显变慢</span><br><span class="line"></span><br><span class="line">&lt;实现细节&gt;:</span><br><span class="line">- 用 PyMuPDF 直接提取文本（对数字版 PDF 很快）</span><br><span class="line">- 用 Tesseract OCR 处理扫描页（通过“图像/文本比例”检测）</span><br><span class="line">- 用 Camelot 提取表格</span><br><span class="line">- 用 Celery + Redis 队列做后台处理</span><br><span class="line">- 结果存到 S3 兼容存储（本地用 MinIO，生产用 S3）</span><br><span class="line">- 前端用 WebSocket 实时展示进度</span><br><span class="line"></span><br><span class="line">&lt;约束&gt;:</span><br><span class="line">- 内存限制：一次只处理 1 页，避免大 PDF OOM</span><br><span class="line">- 超时：每页 30 秒，超时则跳过并记录日志</span><br><span class="line">- 处理完要清理所有临时文件</span><br><span class="line">- 错误状态必须对用户友好（例如“第 15 页失败：图像质量差”，</span><br><span class="line">  而不是直接把堆栈抛给用户）</span><br><span class="line">- 遵循 PEP 8，使用 black 格式化</span><br></pre></td></tr></table></figure>
+
+<p><strong>与 Vibe Coding 的关键差异</strong>：</p>
+<ul>
+<li>Vibe coding：只说“我想要 X”（含糊，AI 需要猜实现与边界）</li>
+<li>Agentic coding：给出清晰期望 + 人类做出的关键决策 + 约束</li>
+<li>AI 智能体知道需要实现哪些行为</li>
+<li>AI 智能体知道哪些关键设计已由你定好</li>
+<li>AI 智能体有明确的代码质量边界</li>
+</ul>
+<h3 id="关键定义"><a href="#关键定义" class="headerlink" title="关键定义"></a>关键定义</h3><p><strong>期望（Expectation）</strong>：把某件事“想象成现实”的图景。期望包含：</p>
+<ul>
+<li>所需功能</li>
+<li>针对特定功能的技术栈&#x2F;方案选择</li>
+<li>针对特定功能的需求与规格</li>
+</ul>
+<p><strong>关键区别</strong>：期望不同于传统“规格说明书”，它是一种整体性的想象：覆盖从实现过程到用户体验的完整旅程。</p>
+<p><strong>实现细节（Implementation Details）</strong>：当你让 AI 去实现某个功能&#x2F;算法时，你可能已经基于期望想好了具体做法，这些具体做法就是“实现细节”。</p>
+<p><strong>约束（Constraints）</strong>：额外要求，用于让 AI 生成的代码更易于人类审查与维护。</p>
+<hr>
+<h2 id="EDAD-循环（EDAD-Loop）"><a href="#EDAD-循环（EDAD-Loop）" class="headerlink" title="EDAD 循环（EDAD Loop）"></a>EDAD 循环（EDAD Loop）</h2><h3 id="1-目标-→-想象（探索阶段）"><a href="#1-目标-→-想象（探索阶段）" class="headerlink" title="1. 目标 → 想象（探索阶段）"></a>1. 目标 → 想象（探索阶段）</h3><p><strong>目标</strong>：想象一切已经做完。既要想象“构建它的过程”，也要想象“使用它的体验”。</p>
+<p><strong>关注点</strong>：</p>
+<ul>
+<li><strong>行为</strong>：系统如何表现？用户交互后会发生什么？</li>
+<li><strong>用户体验</strong>：用起来是什么感觉？是否顺滑、直觉、甚至令人愉悦？</li>
+<li><strong>结果</strong>：它实现了什么？解决了什么问题？</li>
+<li><strong>可能性</strong>：不急着承诺，先探索多种方案</li>
+</ul>
+<p><strong>不关注</strong>：</p>
+<ul>
+<li>代码结构（那是问题求解）</li>
+<li>实现细节（那是问题求解）</li>
+<li>技术架构（那是问题求解）</li>
+</ul>
+<p><strong>活动</strong>：</p>
+<ul>
+<li>整理并表达需求</li>
+<li>盘点你想要的行为与体验</li>
+<li>调用过往经验与教训</li>
+<li>问：**“做完以后会是什么感觉？”**而不是“我该怎么实现？”</li>
+</ul>
+<p><strong>关键洞察</strong>：这是探索阶段，广度比深度更重要。生成多个潜在方案与愿景。停留在“想象层”，不要进入“实现层”。</p>
+<p><strong>重要</strong>：想象阶段持续时间取决于目标清晰度：</p>
+<ul>
+<li><strong>目标很清晰且你很受挫</strong>：几天（例：KohakuHub——某次政策变化引发强烈挫败 → 几天集中想象）</li>
+<li><strong>目标含糊</strong>：需要更长探索</li>
+<li><strong>陌生领域</strong>：想象期更长</li>
+<li><strong>质量比时长重要</strong>：3 天的清晰想象 &gt; 3 周的模糊想象</li>
+</ul>
+<h3 id="2-想象-→-期望（收敛-利用阶段）"><a href="#2-想象-→-期望（收敛-利用阶段）" class="headerlink" title="2. 想象 → 期望（收敛&#x2F;利用阶段）"></a>2. 想象 → 期望（收敛&#x2F;利用阶段）</h3><p><strong>目标</strong>：从你想象出的多种可能性中做选择，并承诺为具体的“期望”。</p>
+<p><strong>关注点</strong>：<strong>“选一个”</strong>——选定要构建的方案、行为和体验。</p>
+<p><strong>活动</strong>：</p>
+<ul>
+<li>回顾想象阶段的所有可能性</li>
+<li>选择最有前景&#x2F;最适合的方案</li>
+<li>把选择写清楚</li>
+<li>按层级组织功能与需求</li>
+<li>识别核心行为与目标结果</li>
+<li>把期望整理成 AI 智能体可消费的形式</li>
+</ul>
+<p><strong>产出</strong>：一组已选定、可用于指导开发的期望。</p>
+<p><strong>重要</strong>：期望应保持一定流动性。你记录期望，是为了看清自己的心智模型，而不是写死规格。等你看到真实代码后，你的期望<strong>一定</strong>会变化——这很健康，也是正常现象。</p>
+<h3 id="3-期望-→-实现细节（问题求解阶段）"><a href="#3-期望-→-实现细节（问题求解阶段）" class="headerlink" title="3. 期望 → 实现细节（问题求解阶段）"></a>3. 期望 → 实现细节（问题求解阶段）</h3><p><strong>目标</strong>：弄清楚如何把期望落地。</p>
+<p><strong>关注点</strong>：<strong>“怎么做？”</strong>——此时才决定代码结构、架构和实现方式。</p>
+<p><strong>活动</strong>：</p>
+<ul>
+<li>把期望拆成具体特性与组件</li>
+<li>设计代码结构与架构</li>
+<li>为每个组件找可行解</li>
+<li>做架构决策</li>
+<li>规划实现路线</li>
+</ul>
+<p><strong>人类 vs 智能体的职责分工</strong></p>
+<p><strong>人类负责</strong>：</p>
+<ul>
+<li><strong>关键的“怎么做”逻辑</strong>：复杂算法、非平凡业务逻辑、架构模式</li>
+<li><strong>系统设计</strong>：组件如何交互、数据流、状态管理</li>
+<li><strong>方案选择</strong>：用什么库、什么路线、什么架构模式</li>
+<li>示例：“使用事件驱动架构 + 消息队列来处理异步流程”</li>
+</ul>
+<p><strong>智能体负责</strong>：</p>
+<ul>
+<li><strong>简单的“怎么做”逻辑</strong>：直观控制流、数据变换、标准模式</li>
+<li><strong>“把它变成真代码”的怎么做</strong>：写代码、补样板、处理语法&#x2F;格式</li>
+<li>示例：在你做出架构决策后，负责把实际代码全部写出来</li>
+</ul>
+<p><strong>关键原则</strong>：开发者拥有重要逻辑与方案设计权；AI 智能体是执行者，不是替代开发者。难的 “how” 你来定，AI 来实现你的决策。</p>
+<h3 id="4-智能体式编码（实现阶段）"><a href="#4-智能体式编码（实现阶段）" class="headerlink" title="4. 智能体式编码（实现阶段）"></a>4. 智能体式编码（实现阶段）</h3><p><strong>流程</strong>：期望 + 实现细节 → AI 智能体 → 代码</p>
+<p><strong>原则</strong>：</p>
+<ul>
+<li>给 AI 清晰且细致的期望</li>
+<li>必要时补充具体实现细节</li>
+<li>设定合适的代码质量约束</li>
+<li>让 AI 处理机械重复的编码工作</li>
+</ul>
+<p><strong>关键洞察：期望会变化</strong></p>
+<p>当你看到真实代码成形，你的期望<strong>一定会</strong>改变。这不是失败，而是方法论在正确工作：</p>
+<ul>
+<li><strong>实现前</strong>：“我觉得用户会想要 X 这么工作”</li>
+<li><strong>看到真实代码后</strong>：“现在看起来，Y 方式更合理”</li>
+<li><strong>更新后的期望</strong>：回到步骤 2（期望）重新整理</li>
+</ul>
+<p><strong>为什么会这样</strong>：</p>
+<ul>
+<li>抽象想象和具体代码不是一回事</li>
+<li>实现会暴露你之前没意识到的限制与机会</li>
+<li>亲眼看到它跑起来（或跑不起来）会带来新信息</li>
+</ul>
+<p><strong>该怎么做</strong>：</p>
+<ul>
+<li>不要抗拒变化，拥抱它</li>
+<li>根据学习到的新信息更新期望</li>
+<li>这就是 EDAD 循环的快速迭代</li>
+<li>记录变化是为了理解你心智模型的演进，而不是把你锁死在旧想法里</li>
+</ul>
+<h3 id="5-验证与修复"><a href="#5-验证与修复" class="headerlink" title="5. 验证与修复"></a>5. 验证与修复</h3><p><strong>目标</strong>：验证 AI 生成的代码是否满足期望与实现细节，并能正确运行。</p>
+<p><strong>决策点</strong>：</p>
+<p><strong>如果多次尝试仍然不工作：</strong></p>
+<ul>
+<li>回到步骤 2（期望）</li>
+<li>你的目标可能需要调整期望</li>
+<li>考虑更换技术栈或路线</li>
+</ul>
+<p><strong>如果成功：</strong></p>
+<ul>
+<li>进入下一个目标</li>
+<li>记录经验教训</li>
+<li>更新你的期望库（Expectation Library）</li>
+</ul>
+<h3 id="6-更新期望（持续改进）"><a href="#6-更新期望（持续改进）" class="headerlink" title="6. 更新期望（持续改进）"></a>6. 更新期望（持续改进）</h3><p><strong>触发更新期望的典型原因</strong>：</p>
+<ul>
+<li>用户反馈暴露新需求</li>
+<li>团队成员建议</li>
+<li>项目目标变化</li>
+<li>实现过程中发现技术限制</li>
+<li>性能或可扩展性问题</li>
+</ul>
+<hr>
+<h2 id="成功的关键"><a href="#成功的关键" class="headerlink" title="成功的关键"></a>成功的关键</h2><h3 id="1-一次想象对应多个期望"><a href="#1-一次想象对应多个期望" class="headerlink" title="1. 一次想象对应多个期望"></a>1. 一次想象对应多个期望</h3><p>一次想象可以分叉出多个期望。方法论难点主要在“探索 + 收敛”两阶段，因为它要求开发者具备：</p>
+<ul>
+<li>足够的项目经验</li>
+<li>探索时的广度（能想到多种可能）</li>
+<li>收敛时的精度（能选对方案）</li>
+</ul>
+<h3 id="2-想象阶段的关注点"><a href="#2-想象阶段的关注点" class="headerlink" title="2. 想象阶段的关注点"></a>2. 想象阶段的关注点</h3><p>在想象阶段，重点是**“做完后会是什么感觉？”<strong>而不是</strong>“我该怎么做？”**</p>
+<p>“怎么做”属于问题求解阶段。把两者分开，能做出更好的架构决策。</p>
+<h3 id="3-动态期望管理"><a href="#3-动态期望管理" class="headerlink" title="3. 动态期望管理"></a>3. 动态期望管理</h3><p>由于一次想象会产生多个期望，真正实现时需要动态调整期望以：</p>
+<ul>
+<li>适应现实约束</li>
+<li>响应变化的需求</li>
+<li>利用实现中发现的新机会做优化</li>
+</ul>
+<h2 id="为什么“个人满足感”是最关键指标"><a href="#为什么“个人满足感”是最关键指标" class="headerlink" title="为什么“个人满足感”是最关键指标"></a>为什么“个人满足感”是最关键指标</h2><h3 id="期望—满足感的连接"><a href="#期望—满足感的连接" class="headerlink" title="期望—满足感的连接"></a>期望—满足感的连接</h3><p>EDAD 与传统方法论的本质不同，在于它围绕<strong>期望</strong>运转——也就是你对“将会发生什么”的想象。当实现成功时，你不只是“完成任务”，而是把你的想象<strong>具象化</strong>成现实。</p>
+<p><strong>传统开发：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">规格 → 实现 → “能跑” → 满足感（较小）</span><br></pre></td></tr></table></figure>
+
+<p><strong>EDAD：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">深度想象 → 期望 → 实现 → 现实匹配想象 → 满足感（巨大）</span><br></pre></td></tr></table></figure>
+
+<h3 id="满足感为什么会这么强"><a href="#满足感为什么会这么强" class="headerlink" title="满足感为什么会这么强"></a>满足感为什么会这么强</h3><p><strong>1) 先有想象</strong></p>
+<ul>
+<li>你花时间把完成态想象得很具体</li>
+<li>你想清楚体验、行为与感觉</li>
+<li>当现实匹配：强烈的创造满足</li>
+</ul>
+<p><strong>2) 意志显化</strong></p>
+<ul>
+<li>不是在实现别人的规格</li>
+<li>不是在实现含糊需求</li>
+<li>是你的想象、你的期望变成现实</li>
+<li>这对人类心理极其满足</li>
+</ul>
+<p><strong>3) 形成反馈回路</strong></p>
+<ul>
+<li>高满足感 → 更有能量开启下一轮循环</li>
+<li>低满足感 → 信号：期望不对，需要回到想象&#x2F;期望阶段</li>
+<li>满足感成为你判断质量的“指南针”</li>
+</ul>
+<h3 id="把满足感当作开发工具"><a href="#把满足感当作开发工具" class="headerlink" title="把满足感当作开发工具"></a>把满足感当作开发工具</h3><p>满足感不仅是奖励，还是一种诊断手段：</p>
+<p><strong>高满足感：</strong></p>
+<ul>
+<li>✓ 想象足够现实</li>
+<li>✓ 期望足够清晰</li>
+<li>✓ 实现符合愿景</li>
+<li>✓ 你正在正确使用 EDAD</li>
+<li>→ 继续前进，基于成功迭代</li>
+</ul>
+<p><strong>成功但满足感低：</strong></p>
+<ul>
+<li>✗ 想象阶段出了问题</li>
+<li>✗ 期望没有抓住你真正想要的</li>
+<li>✗ 想象与期望之间存在断层</li>
+<li>→ 回头改进“如何想象、如何形成期望”</li>
+</ul>
+<p><strong>失败导致满足感低：</strong></p>
+<ul>
+<li>✗ 期望不现实</li>
+<li>✗ 需要调整想象或改方案</li>
+<li>→ 学习并迭代</li>
+</ul>
+<h3 id="效率—满足感关系"><a href="#效率—满足感关系" class="headerlink" title="效率—满足感关系"></a>效率—满足感关系</h3><p>EDAD 同时优化<strong>效率</strong>（最小时间成本）与<strong>满足感</strong>（期望被实现）。</p>
+<p>传统方法更偏向优化<strong>可预测性</strong>，代价往往是效率与满足感的牺牲。</p>
+<p><strong>EDAD 为什么两者兼得：</strong></p>
+<ol>
+<li>少做不必要流程 → 更高效  </li>
+<li>构建你想象的东西 → 更满足  </li>
+<li>AI 承担枯燥部分 → 你专注创造性工作 → 更满足  </li>
+<li>快速迭代 → 更快看到想象落地 → 持续满足</li>
+</ol>
+<p><strong>代价（trade-off）：</strong></p>
+<ul>
+<li>你放弃：可预测的排期、提前精确计划</li>
+<li>你获得：最高效率、巨大满足感、创造性成就</li>
+</ul>
+<h3 id="实用建议"><a href="#实用建议" class="headerlink" title="实用建议"></a>实用建议</h3><p><strong>把满足感当作反馈：</strong></p>
+<ul>
+<li>每天结束问：“今天做完的东西我满意吗？”</li>
+<li>每个功能结束问：“它和我想象的一样吗？”</li>
+<li>项目结束问：“我还愿意再来一遍吗？”</li>
+</ul>
+<p><strong>如果满足感低，做诊断：</strong></p>
+<ol>
+<li>我想象得够清晰吗？</li>
+<li>我从想象中选对期望了吗？</li>
+<li>实现有没有偏离期望？</li>
+<li>我的期望现实吗？</li>
+</ol>
+<p><strong>让满足感驱动迭代：</strong></p>
+<ul>
+<li>高满足感 → 对方法更有信心</li>
+<li>低满足感 → 学习并调整</li>
+<li>随着熟练度提升，满足感应该逐步上升</li>
+</ul>
+<hr>
+<h2 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h2><h3 id="1-单人-AI-的生产力乘数（效率）"><a href="#1-单人-AI-的生产力乘数（效率）" class="headerlink" title="1. 单人 + AI 的生产力乘数（效率）"></a>1. 单人 + AI 的生产力乘数（效率）</h3><p>EDAD 针对“单开发者 + AI 智能体”的工作流特别设计。真实验证包括：</p>
+<ul>
+<li>构建 10 万行以上、可投产的全栈应用</li>
+<li>用 1 个月完成传统团队数月工作量</li>
+<li>全程保持高代码质量</li>
+</ul>
+<h3 id="2-虚拟实验室与远程优先协作"><a href="#2-虚拟实验室与远程优先协作" class="headerlink" title="2. 虚拟实验室与远程优先协作"></a>2. 虚拟实验室与远程优先协作</h3><p>EDAD 特别适合：</p>
+<p><strong>虚拟实验室（Virtual Lab）</strong>：</p>
+<ul>
+<li>一个人负责一个完整项目&#x2F;模块</li>
+<li>其他成员作为用户或顾问</li>
+<li>反馈回路通过调整“期望”而非纠结具体代码</li>
+</ul>
+<p><strong>远程协作（Remote-Oriented）</strong>：</p>
+<ul>
+<li>异步反馈循环</li>
+<li>清晰的所有权边界</li>
+<li>极低的协作&#x2F;对齐成本</li>
+</ul>
+<h3 id="3-可扩展的团队结构"><a href="#3-可扩展的团队结构" class="headerlink" title="3. 可扩展的团队结构"></a>3. 可扩展的团队结构</h3><p><strong>面对大项目：</strong></p>
+<ul>
+<li><strong>产品经理</strong>：掌控产品级期望</li>
+<li><strong>工程师</strong>：掌控模块级期望</li>
+<li><strong>一人一模块</strong>：同一时间一个模块只由一人（及其 AI 工具）修改</li>
+<li><strong>结果</strong>：协作效率最大化，合并冲突最小化</li>
+</ul>
+<h3 id="4-清晰的责任边界"><a href="#4-清晰的责任边界" class="headerlink" title="4. 清晰的责任边界"></a>4. 清晰的责任边界</h3><ul>
+<li>每个模块都有清晰负责人</li>
+<li>期望作为模块之间的“契约”</li>
+<li>期望变更触发明确讨论</li>
+<li>降低集成噩梦</li>
+</ul>
+<hr>
+<h2 id="缺点与局限"><a href="#缺点与局限" class="headerlink" title="缺点与局限"></a>缺点与局限</h2><h3 id="1-对开发者要求高"><a href="#1-对开发者要求高" class="headerlink" title="1. 对开发者要求高"></a>1. 对开发者要求高</h3><p>EDAD 要求开发者具备：</p>
+<ul>
+<li>清晰理解目标</li>
+<li>对技术栈选择有经验</li>
+<li>强架构直觉</li>
+<li>能提出多个方案</li>
+<li>能评估取舍</li>
+</ul>
+<p><strong>缓解</strong>：沉淀“期望库”。新手可以通过复用资深开发者的期望模板来学习。</p>
+<h3 id="2-项目中途交接困难"><a href="#2-项目中途交接困难" class="headerlink" title="2. 项目中途交接困难"></a>2. 项目中途交接困难</h3><p>被打断后，很难交接，因为：</p>
+<ul>
+<li>大量上下文存在于原开发者的想象里</li>
+<li>期望可能不完整或隐含</li>
+<li>决策背后的“为什么”未必写清</li>
+</ul>
+<p><strong>缓解</strong>：</p>
+<ul>
+<li>维护详细的期望文档</li>
+<li>记录决策理由</li>
+<li>每个模块写完善 README</li>
+<li>与团队定期做期望评审</li>
+</ul>
+<h3 id="3-需要极强的模块化"><a href="#3-需要极强的模块化" class="headerlink" title="3. 需要极强的模块化"></a>3. 需要极强的模块化</h3><p>根据智能体式编码的特性，项目需要：</p>
+<ul>
+<li>高度模块化架构</li>
+<li>小而聚焦的模块</li>
+<li>清晰的组件边界</li>
+<li><strong>原因</strong>：AI 在小型代码库上效果更好；每次智能体编码会话最好只改一小部分</li>
+</ul>
+<p><strong>缓解</strong>：</p>
+<ul>
+<li>前期投入架构规划</li>
+<li>采用微服务等模式</li>
+<li>尽量让模块控制在 ~1000–2000 行以内</li>
+<li>定义清晰接口</li>
+</ul>
+<h3 id="4-依赖-AI-能力"><a href="#4-依赖-AI-能力" class="headerlink" title="4. 依赖 AI 能力"></a>4. 依赖 AI 能力</h3><ul>
+<li>受限于 AI 智能体能力</li>
+<li>对前沿&#x2F;小众技术可能吃力</li>
+<li>需要一定 prompting 技能</li>
+</ul>
+<hr>
+<h2 id="实操指南"><a href="#实操指南" class="headerlink" title="实操指南"></a>实操指南</h2><h3 id="搭建你的-EDAD-环境"><a href="#搭建你的-EDAD-环境" class="headerlink" title="搭建你的 EDAD 环境"></a>搭建你的 EDAD 环境</h3><ol>
+<li><strong>选择 AI 智能体</strong>：Claude、GPT‑4 或专门的 coding agent  </li>
+<li><strong>建立模块结构</strong>：项目设计时划清模块边界  </li>
+<li><strong>准备期望模板</strong>：标准化记录方式  </li>
+<li><strong>配置验证体系</strong>：自动化测试、linter、formatter</li>
+</ol>
+<h3 id="期望文档模板"><a href="#期望文档模板" class="headerlink" title="期望文档模板"></a>期望文档模板</h3><p><strong>重要</strong>：这只是帮助你入门的“快速启动模板”，不是硬规则。熟练后，你的期望可以是：</p>
+<ul>
+<li>与 AI 的对话式提示词（见下例）</li>
+<li>你脑中的要点</li>
+<li>粗略草图</li>
+<li>期望 + 实现细节的混合体</li>
+<li>任何能捕捉你思考的形式</li>
+</ul>
+<p>下面的模板是“训练轮（training wheels）”，用到你形成自己的自然风格为止。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## 功能：[功能名]</span></span><br><span class="line"></span><br><span class="line"><span class="section">### 期望</span></span><br><span class="line">[从用户视角描述功能做什么]</span><br><span class="line">[包含具体行为与边界情况]</span><br><span class="line"></span><br><span class="line"><span class="section">### 技术栈选择</span></span><br><span class="line">[指定选用技术及原因]</span><br><span class="line"></span><br><span class="line"><span class="section">### 实现细节</span></span><br><span class="line">[具体实现路线]</span><br><span class="line">[关键算法或模式]</span><br><span class="line"></span><br><span class="line"><span class="section">### 约束</span></span><br><span class="line">[代码质量要求]</span><br><span class="line">[性能要求]</span><br><span class="line">[兼容性要求]</span><br><span class="line"></span><br><span class="line"><span class="section">### 成功标准</span></span><br><span class="line">[如何验证功能正确工作]</span><br></pre></td></tr></table></figure>
+
+<p><strong>真实案例</strong>（KohakuBoard 的 run 管理重构）</p>
+<p>这是实践中真实的“期望长相”——一段对话式提示词，混合期望与关键实现细节：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">我想重新设计本地日志结构和 run id 的方案：</span><br><span class="line">  1. 在本地日志中，我们用 &lt;folder&gt;/&lt;project&gt;/&lt;random_str&gt;_&lt;annotation(run_name)&gt;</span><br><span class="line">     这意味着本地日志仍然可以包含多个 project，用户也可以直接</span><br><span class="line">     通过“删除文件夹/重命名文件夹”来管理 runs</span><br><span class="line">  2. random_str 只用 4 位字符（0-9a-z，36^4 大约 160 万，对单个 project</span><br><span class="line">     来说足够用来做文件夹名）</span><br><span class="line">  3. 这套方案对本地与远端都适用（远端则是 folder/user/project/...）</span><br><span class="line">  4. 你需要修改 frontend/backend 的 kobo open，让它能列出 project 级视图</span><br><span class="line">  5. 你需要修改 logger/server，让它正确处理这种文件夹命名</span><br><span class="line">  6. “run_id” 仍然是文件夹名，但现在我们用 run_id 作为标题，</span><br><span class="line">     预定义的 run_name 作为副标题，因为在本地目录里用户可能会直接改文件夹名</span><br><span class="line">  7. 确保相关功能也都能工作（比如 kobo inspect）</span><br><span class="line"></span><br><span class="line">  试着查看我们当前代码库，并给我你的实现计划</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么这是 EDAD 风格：</strong></p>
+<ul>
+<li><strong>期望清晰</strong>：用户通过文件夹操作（删&#x2F;改名）来管理 run</li>
+<li><strong>关键逻辑由人类决定</strong>：4 位随机串（并给出理由：36^4 ≈ 160 万）</li>
+<li><strong>贴近现实</strong>：第 6 点承认用户会直接改文件夹名</li>
+<li><strong>AI 的任务明确</strong>：检查代码库并给出实现计划</li>
+<li><strong>不拘泥模板</strong>：自然沟通，抓住本质</li>
+</ul>
+<p>注意：</p>
+<ul>
+<li>没有死板结构</li>
+<li>“what”（期望）与 “how”（实现细节）混在一起</li>
+<li>写进去的 “how” 是你的关键决策，不是把 AI 绑死在细枝末节</li>
+<li>对话式，而非正式规格</li>
+<li>这就是 EDAD 的真实样子</li>
+</ul>
+<h3 id="分层-EDAD-循环（Hierarchical-EDAD-Loops）"><a href="#分层-EDAD-循环（Hierarchical-EDAD-Loops）" class="headerlink" title="分层 EDAD 循环（Hierarchical EDAD Loops）"></a>分层 EDAD 循环（Hierarchical EDAD Loops）</h3><p><strong>关键原则</strong>：EDAD 没有固定的“每日工作流”。它是分层的、长度可变的循环，复杂度越高，循环尺度越大。</p>
+<h4 id="分层结构"><a href="#分层结构" class="headerlink" title="分层结构"></a>分层结构</h4><p><strong>项目级期望（数月到数年）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">目标：“做一个 HuggingFace + WandB 的替代品”</span><br><span class="line">├─ 想象：多年积累的愿景</span><br><span class="line">├─ 期望：包含多个组件的完整生态</span><br><span class="line">└─ 循环时长：数月实现，数年演进</span><br></pre></td></tr></table></figure>
+
+<p><strong>模块级期望（数周到数月）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">子目标：“构建高性能的 ML 实验追踪器”</span><br><span class="line">├─ 想象：数周的设计权衡</span><br><span class="line">├─ 期望：KohakuBoard —— 零开销日志记录</span><br><span class="line">└─ 循环时长：数周实现核心，数月打磨成熟</span><br></pre></td></tr></table></figure>
+
+<p><strong>功能级期望（数天到数周）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">子子目标：“实现基于 WebGL 的图表渲染”</span><br><span class="line">├─ 想象：数天的 UX 思考</span><br><span class="line">├─ 期望：10 万+ 数据点也要顺滑</span><br><span class="line">└─ 循环时长：数天实现，数周迭代优化</span><br></pre></td></tr></table></figure>
+
+<p><strong>Bug&#x2F;增强级期望（数小时到数天）</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">微目标：“修复直方图压缩算法”</span><br><span class="line">├─ 想象：数小时问题分析</span><br><span class="line">├─ 期望：保持 99.8% 压缩率</span><br><span class="line">└─ 循环时长：数小时实现，数天验证</span><br></pre></td></tr></table></figure>
+
+<h4 id="来自真实项目的实践例子"><a href="#来自真实项目的实践例子" class="headerlink" title="来自真实项目的实践例子"></a>来自真实项目的实践例子</h4><p><strong>最小循环（小时&#x2F;天）</strong>：</p>
+<ul>
+<li>修复生产环境发现的 bug</li>
+<li>加一个用户提出的小功能</li>
+<li>优化一个性能瓶颈</li>
+<li>例：“改进 CSV 导出格式” → 想象 30 分钟 → 实现 2 小时</li>
+</ul>
+<p><strong>最大循环（年级别）</strong>：</p>
+<ul>
+<li>整个生态系统的设计与演进</li>
+<li>多个互联系统</li>
+<li>例：“做 HuggingFace 替代品” → 想象（多年累积的挫败与愿景） → 实现（2 个月密集开发） → 演进（持续进行）</li>
+</ul>
+<h4 id="关键特征"><a href="#关键特征" class="headerlink" title="关键特征"></a>关键特征</h4><p><strong>循环时长不一致：</strong></p>
+<ul>
+<li>可能从小时到多年不等</li>
+<li>无法强行塞进 sprint 或固定节奏</li>
+<li>每个循环在“期望被满足”时结束</li>
+<li>高层循环通常包含多个嵌套循环</li>
+</ul>
+<p><strong>并行循环：</strong></p>
+<ul>
+<li>多个模块级循环可并行推进</li>
+<li>模块负责人各自决定节奏</li>
+<li>项目级期望负责协调，但不强制同步</li>
+</ul>
+<p><strong>自适应节奏：</strong></p>
+<ul>
+<li>开发者按自然问题求解节奏工作</li>
+<li>有些天能跑完 5 个功能级循环</li>
+<li>有些天会深挖一个架构决策</li>
+<li>EDAD 接受这种波动，而不是对抗它</li>
+</ul>
+<hr>
+<h2 id="与传统方法论对比"><a href="#与传统方法论对比" class="headerlink" title="与传统方法论对比"></a>与传统方法论对比</h2><h3 id="根本差异：关注“心智模型”"><a href="#根本差异：关注“心智模型”" class="headerlink" title="根本差异：关注“心智模型”"></a>根本差异：关注“心智模型”</h3><p>其他“XX 驱动”方法论大多忽略一个基本事实：人类开发者的认知方式。EDAD 正面承认并利用这一点，而不是试图对抗。</p>
+<h3 id="为什么人类无法预测实现时间"><a href="#为什么人类无法预测实现时间" class="headerlink" title="为什么人类无法预测实现时间"></a>为什么人类无法预测实现时间</h3><p><strong>两个基本事实：</strong></p>
+<p><strong>1) 如果你能预测，就不该重新实现</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">能预测时间 → 你做过类似的 → 应该复用/复制粘贴，而不是重写</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可预测任务往往是重复任务</li>
+<li>你能准确估时，说明你已有模式</li>
+<li>正确做法：复用代码，不要重造</li>
+</ul>
+<p><strong>2) 人类不是神</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">无法预测 bug → 无法预测调试时间 → 无法预测总时间</span><br></pre></td></tr></table></figure>
+<ul>
+<li>你不知道你不知道什么</li>
+<li>bug 往往来自意想不到的交互</li>
+<li>调试时间常常超过编码时间</li>
+<li>边界情况会在实现时才暴露</li>
+</ul>
+<h3 id="这对方法论选择意味着什么"><a href="#这对方法论选择意味着什么" class="headerlink" title="这对方法论选择意味着什么"></a>这对方法论选择意味着什么</h3><p><strong>传统方法论（瀑布、敏捷等）：</strong></p>
+<ul>
+<li>前提：开发者应该估时、可预测</li>
+<li>现实：开发者在猜，而且经常猜错</li>
+<li>结果：为了赶不现实的排期 → 技术债、压力与倦怠</li>
+</ul>
+<p><strong>EDAD：</strong></p>
+<ul>
+<li>前提：新工作不可预测</li>
+<li>现实：把焦点放在效率，而不是可预测性</li>
+<li>结果：最高速度、高质量、可持续节奏、高满足感</li>
+</ul>
+<p><strong>真实的权衡：</strong></p>
+<ul>
+<li>传统：可预测（但慢且压力大）</li>
+<li>EDAD：高效（但不可预测）</li>
+<li>两者不可兼得——按你的优先级选择</li>
+</ul>
+<h3 id="“心智模型”关注为何能带来效率"><a href="#“心智模型”关注为何能带来效率" class="headerlink" title="“心智模型”关注为何能带来效率"></a>“心智模型”关注为何能带来效率</h3><p><strong>传统路径：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">外部需求 → 被迫理解 → 实现 → 不满足</span><br><span class="line">(不是你的想象) → (不自然) → (枯燥) → (能量低)</span><br></pre></td></tr></table></figure>
+
+<p><strong>EDAD 路径：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">内部想象 → 自然期望 → AI 协助实现 → 深度满足</span><br><span class="line">(你的愿景) → (你的选择) → (高效) → (更有能量继续)</span><br></pre></td></tr></table></figure>
+
+<p><strong>关键洞察</strong>：当开发者构建的是“自己想象的东西”（而不是别人塞给你的东西），效率与满足感都会最大化。EDAD 只是把这种自然创造过程形式化。</p>
+<hr>
+<h2 id="与传统方法论对比（更具体）"><a href="#与传统方法论对比（更具体）" class="headerlink" title="与传统方法论对比（更具体）"></a>与传统方法论对比（更具体）</h2><h3 id="vs-瀑布（Waterfall）"><a href="#vs-瀑布（Waterfall）" class="headerlink" title="vs. 瀑布（Waterfall）"></a>vs. 瀑布（Waterfall）</h3><ul>
+<li><strong>EDAD</strong>：期望会动态演进</li>
+<li><strong>瀑布</strong>：需求前期固定</li>
+<li><strong>EDAD 优势</strong>：更能适应变化</li>
+</ul>
+<h3 id="vs-敏捷-Scrum"><a href="#vs-敏捷-Scrum" class="headerlink" title="vs. 敏捷&#x2F; Scrum"></a>vs. 敏捷&#x2F; Scrum</h3><ul>
+<li><strong>EDAD</strong>：单人 + AI、异步协作</li>
+<li><strong>敏捷</strong>：团队仪式、同步协调</li>
+<li><strong>EDAD 优势</strong>：模块负责人几乎没有协调开销</li>
+</ul>
+<h3 id="vs-测试驱动开发（TDD）"><a href="#vs-测试驱动开发（TDD）" class="headerlink" title="vs. 测试驱动开发（TDD）"></a>vs. 测试驱动开发（TDD）</h3><ul>
+<li><strong>EDAD</strong>：期望优先</li>
+<li><strong>TDD</strong>：测试优先</li>
+<li><strong>协同点</strong>：EDAD 的期望可以指导测试编写</li>
+<li><strong>差异</strong>：EDAD 覆盖 UX&#x2F;行为，不止是“正确性”</li>
+</ul>
+<h3 id="vs-领域驱动设计（DDD）"><a href="#vs-领域驱动设计（DDD）" class="headerlink" title="vs. 领域驱动设计（DDD）"></a>vs. 领域驱动设计（DDD）</h3><ul>
+<li><strong>EDAD</strong>：与 DDD 兼容</li>
+<li><strong>共同点</strong>：强调理解领域问题</li>
+<li><strong>EDAD 增量</strong>：显式利用 AI 来做实现</li>
+</ul>
+<hr>
+<h2 id="谁适合用-EDAD"><a href="#谁适合用-EDAD" class="headerlink" title="谁适合用 EDAD"></a>谁适合用 EDAD</h2><h3 id="理想适用场景"><a href="#理想适用场景" class="headerlink" title="理想适用场景"></a>理想适用场景</h3><h4 id="1-虚拟实验室-全远程组织"><a href="#1-虚拟实验室-全远程组织" class="headerlink" title="1) 虚拟实验室 &#x2F; 全远程组织"></a>1) 虚拟实验室 &#x2F; 全远程组织</h4><p><strong>为什么适合：</strong></p>
+<ul>
+<li>天生异步——几乎没有协调成本</li>
+<li>每个人完全拥有自己的模块</li>
+<li>期望充当沟通契约</li>
+<li>不需要每日站会或 sprint 规划</li>
+</ul>
+<p><strong>例子</strong>：研究团队成员分别做一个更大系统的不同部分，通过共享期望而不是会议对齐。</p>
+<h4 id="2-追求速度但不需要固定排期的创业团队"><a href="#2-追求速度但不需要固定排期的创业团队" class="headerlink" title="2) 追求速度但不需要固定排期的创业团队"></a>2) 追求速度但不需要固定排期的创业团队</h4><p><strong>为什么适合：</strong></p>
+<ul>
+<li>功能一旦满足期望就上线</li>
+<li>通过更新期望快速转向</li>
+<li>没有人为 sprint 边界</li>
+<li>质量达到期望就发版</li>
+</ul>
+<p><strong>例子</strong>：早期 MVP，优先级随用户反馈频繁变动，目标是“尽快”，而不是“周五必须”。</p>
+<h4 id="3-研究型开发"><a href="#3-研究型开发" class="headerlink" title="3) 研究型开发"></a>3) 研究型开发</h4><p><strong>为什么适合：</strong></p>
+<ul>
+<li>探索阶段与研究心态一致</li>
+<li>循环时长的可变性符合研究不确定性</li>
+<li>可以花数天&#x2F;数周攻克难题而不内疚</li>
+<li>关注 “what”（研究问题）而非 “when”（截止日期）</li>
+</ul>
+<h4 id="4-开源社区项目"><a href="#4-开源社区项目" class="headerlink" title="4) 开源社区项目"></a>4) 开源社区项目</h4><p><strong>为什么适合：</strong></p>
+<ul>
+<li>贡献者按兴趣与节奏参与</li>
+<li>不需要时间线管理</li>
+<li>创新改进比可预测交付更重要</li>
+<li>期望文档记录 “why”，便于后来贡献者理解</li>
+</ul>
+<h3 id="不推荐的场景"><a href="#不推荐的场景" class="headerlink" title="不推荐的场景"></a>不推荐的场景</h3><h4 id="需要可预测时间线的项目（注意：不是“需要更快”）"><a href="#需要可预测时间线的项目（注意：不是“需要更快”）" class="headerlink" title="需要可预测时间线的项目（注意：不是“需要更快”）"></a>需要可预测时间线的项目（注意：不是“需要更快”）</h4><p><strong>为什么不适合：</strong></p>
+<ul>
+<li>EDAD 优化的是<strong>效率</strong>，不是<strong>可预测性</strong></li>
+<li>你无法提前精确回答“什么时候做完”</li>
+<li>高效与不可预测并不矛盾，两者同时成立</li>
+<li>多人同时修改同一代码会冲突</li>
+<li>EDAD 最适合清晰模块所有权</li>
+</ul>
+<p><strong>重要澄清：</strong></p>
+<ul>
+<li>EDAD 是最高效的方法——最小化时间成本</li>
+<li>但你不能事先预测时间成本</li>
+<li><strong>关键原则</strong>：如果你在 deadline 内都无法用 EDAD 完成（考虑到它已是最有效方法），那你很可能用任何方法都做不出来</li>
+<li>问题是<strong>时间不可预测</strong>，不是速度不够</li>
+<li>传统管理通过牺牲效率换来可预测性</li>
+</ul>
+<p><strong>例子</strong>：企业团队需要提前 2 个月对利益相关方承诺“确切什么时候交付”。EDAD 只能说“尽可能高效”，无法给出高置信的精确日期。</p>
+<h4 id="需要紧密协调的项目"><a href="#需要紧密协调的项目" class="headerlink" title="需要紧密协调的项目"></a>需要紧密协调的项目</h4><p><strong>为什么不适合：</strong></p>
+<ul>
+<li>需要清晰模块边界</li>
+<li>多人必须同时改同一代码时会吃力</li>
+<li>中途交接困难</li>
+</ul>
+<p><strong>例子</strong>：游戏开发中，美术、策划、工程不断迭代同一资产。</p>
+<h4 id="领域新手"><a href="#领域新手" class="headerlink" title="领域新手"></a>领域新手</h4><p><strong>为什么不适合：</strong></p>
+<ul>
+<li>需要经验才能写出好期望</li>
+<li>想象阶段需要领域知识</li>
+<li>初级开发者可能难以做方案选择</li>
+</ul>
+<p><strong>缓解</strong>：让初级开发者与资深 EDAD 实践者配对，复用期望模板。</p>
+<hr>
+<h2 id="开始使用-EDAD"><a href="#开始使用-EDAD" class="headerlink" title="开始使用 EDAD"></a>开始使用 EDAD</h2><h3 id="前置条件"><a href="#前置条件" class="headerlink" title="前置条件"></a>前置条件</h3><p><strong>经验要求：</strong></p>
+<ul>
+<li>在你的领域有 3 年以上开发经验</li>
+<li>熟悉多种技术栈与解决方案模式</li>
+<li>能做架构决策</li>
+<li>理解系统设计的取舍</li>
+</ul>
+<p><strong>心态转变：</strong></p>
+<ul>
+<li>接受节奏可变：有的功能几小时，有的几个月</li>
+<li>认可“想象”是一种正当工作</li>
+<li>相信期望而不是细到每行的计划</li>
+<li>放下可预测性，换取质量与效率</li>
+</ul>
+<h3 id="你的第一个-EDAD-项目"><a href="#你的第一个-EDAD-项目" class="headerlink" title="你的第一个 EDAD 项目"></a>你的第一个 EDAD 项目</h3><h4 id="第-1-步：选对项目"><a href="#第-1-步：选对项目" class="headerlink" title="第 1 步：选对项目"></a>第 1 步：选对项目</h4><p><strong>适合的首个项目：</strong></p>
+<ul>
+<li>只有你会改代码的 side project</li>
+<li>时间线宽松的内部工具</li>
+<li>开源实验</li>
+<li>研究原型</li>
+</ul>
+<p><strong>避免：</strong></p>
+<ul>
+<li>硬 deadline 项目</li>
+<li>多人共享频繁修改的代码库</li>
+<li>需要 24&#x2F;7 高可用的生产系统（至少起步阶段别选）</li>
+</ul>
+<h4 id="第-2-步：搭环境"><a href="#第-2-步：搭环境" class="headerlink" title="第 2 步：搭环境"></a>第 2 步：搭环境</h4><ol>
+<li><strong>选 AI 智能体</strong>：Claude、GPT‑4 或 Cursor（合适模型）  </li>
+<li><strong>建期望文档</strong>：先开一个 markdown 文件  </li>
+<li><strong>规划模块结构</strong>：边界要清晰  </li>
+<li><strong>配置验证</strong>：测试、linter、formatter</li>
+</ol>
+<h4 id="第-3-步：跑一轮循环"><a href="#第-3-步：跑一轮循环" class="headerlink" title="第 3 步：跑一轮循环"></a>第 3 步：跑一轮循环</h4><p><strong>第 1 周：想象</strong></p>
+<ul>
+<li>花 2–3 天只做思考与可视化</li>
+<li>先别写代码——会不适应，但很关键</li>
+<li>问：“做完后会是什么感觉？”</li>
+<li>画用户流程，不画架构</li>
+</ul>
+<p><strong>第 1–2 周：期望</strong></p>
+<ul>
+<li>把想象写成结构化文字</li>
+<li>用上面模板</li>
+<li>聚焦行为而非实现</li>
+<li>写清成功标准</li>
+</ul>
+<p><strong>第 2–3 周：问题求解</strong></p>
+<ul>
+<li>现在才进入 “how”</li>
+<li>为每个期望找解法</li>
+<li>研究技术栈</li>
+<li>记录实现细节</li>
+</ul>
+<p><strong>第 3–4 周：实现</strong></p>
+<ul>
+<li>用“期望 + 细节”驱动 AI 产出</li>
+<li>快速迭代</li>
+<li>别追求完美——相信循环</li>
+</ul>
+<p><strong>第 4 周：验证与复盘</strong></p>
+<ul>
+<li>它符合期望吗？</li>
+<li>哪些地方出乎意料？</li>
+<li>下次会怎么做？</li>
+<li>必要时更新期望</li>
+</ul>
+<h4 id="第-4-步：构建期望库"><a href="#第-4-步：构建期望库" class="headerlink" title="第 4 步：构建期望库"></a>第 4 步：构建期望库</h4><p>项目完成后沉淀：</p>
+<ul>
+<li>有效的期望模板</li>
+<li>常见实现模式</li>
+<li>成功的技术栈组合</li>
+<li>经验教训文档</li>
+</ul>
+<p>未来复用它们，加速想象与期望阶段。</p>
+<h3 id="新手常见错误"><a href="#新手常见错误" class="headerlink" title="新手常见错误"></a>新手常见错误</h3><p><strong>错误 1：跳过想象</strong></p>
+<ul>
+<li>表现：直接开写代码</li>
+<li>纠正：强制自己先想几天</li>
+<li>原因：想象差 → 期望差 → 实现差</li>
+</ul>
+<p><strong>错误 2：把实现写得太死</strong></p>
+<ul>
+<li>表现：期望写得像代码</li>
+<li>纠正：关注行为&#x2F;体验，不写代码结构</li>
+<li>原因：会限制 AI 找到更好解法</li>
+</ul>
+<p><strong>错误 3：强行固定排期</strong></p>
+<ul>
+<li>表现：“周五前必须做完”</li>
+<li>纠正：“当它满足期望时就完成”</li>
+<li>原因：EDAD 强在质量与效率，不在可预测</li>
+</ul>
+<p><strong>错误 4：在共享代码库上做</strong></p>
+<ul>
+<li>表现：合并冲突、所有权不清</li>
+<li>纠正：一人一模块，边界清晰</li>
+<li>原因：EDAD 最适合明确所有权</li>
+</ul>
+<p><strong>错误 5：过度写期望文档</strong></p>
+<ul>
+<li>表现：写成厚厚的规格说明书</li>
+<li>纠正：期望要流动；写是为了看清思路，不是锁死自己</li>
+<li>原因：太“规格化”会让期望失去弹性，而期望本就应该在看到真实代码时调整</li>
+</ul>
+<h3 id="衡量成功"><a href="#衡量成功" class="headerlink" title="衡量成功"></a>衡量成功</h3><p><strong>不要用这些衡量：</strong></p>
+<ul>
+<li>每个 sprint 的 story points（EDAD 没 sprint）</li>
+<li>估时准确度（EDAD 优化效率，不优化可预测）</li>
+<li>用 velocity 预测交付时间（你预测不了 “WHEN”，即使很高效）</li>
+</ul>
+<p><strong>应该衡量：</strong></p>
+<p><strong>1) 个人满足感（最关键指标）</strong></p>
+<ul>
+<li>期望被实现会带来巨大满足</li>
+<li>现实匹配想象 → 高满足感 &#x3D; EDAD 用对了</li>
+<li>成功但满足感低 → 期望阶段可能有问题</li>
+</ul>
+<p><strong>2) 交付质量</strong></p>
+<ul>
+<li>bug 率</li>
+<li>用户满意度</li>
+<li>现实是否符合期望</li>
+</ul>
+<p><strong>3) 时间成本（我们在最小化它，但无法预测）</strong></p>
+<ul>
+<li>记录完成特性的实际耗时</li>
+<li>观察趋势：期望库越大，是否越快？</li>
+<li>注意：你在最小化成本，但永远无法提前知道下次要花多久</li>
+<li>EDAD 依然是最高效方法，即使不可预测</li>
+</ul>
+<p><strong>4) 期望修订频率</strong></p>
+<ul>
+<li>实现过程中期望改变的频率</li>
+<li>熟练后应逐步下降</li>
+</ul>
+<p><strong>5) 代码可复用性</strong></p>
+<ul>
+<li>模块是否能跨项目复用？</li>
+<li>期望是否导向清晰抽象？</li>
+</ul>
+<p><strong>关键原则</strong>：EDAD 优化效率与满足感，而不是可预测性。你能最小化时间成本，但无法提前预测。把想象落地的巨大满足感，是这套方法的核心回报。</p>
+<h3 id="进阶路径"><a href="#进阶路径" class="headerlink" title="进阶路径"></a>进阶路径</h3><p><strong>第 1–3 个月</strong></p>
+<ul>
+<li>用小项目掌握基本循环</li>
+<li>建期望库</li>
+<li>试不同 AI 智能体</li>
+</ul>
+<p><strong>第 4–6 个月</strong></p>
+<ul>
+<li>做中等项目（1–2 万行）</li>
+<li>练分层循环</li>
+<li>打磨期望写法</li>
+</ul>
+<p><strong>第 7–12 个月</strong></p>
+<ul>
+<li>大项目（5 万+ 行）变得可行</li>
+<li>多模块并行循环</li>
+<li>试着指导他人实践 EDAD</li>
+</ul>
+<p><strong>第 2 年+</strong></p>
+<ul>
+<li>复杂多系统项目（如 KohakuHub 生态）</li>
+<li>年级别想象 → 月级别实现</li>
+<li>参与 EDAD 方法论演进</li>
+</ul>
+<hr>
+<h2 id="EDAD-的未来"><a href="#EDAD-的未来" class="headerlink" title="EDAD 的未来"></a>EDAD 的未来</h2><p>随着 AI 能力提升，EDAD 会继续演进：</p>
+<h3 id="近期"><a href="#近期" class="headerlink" title="近期"></a>近期</h3><ul>
+<li>AI 更好理解复杂期望</li>
+<li>更强的整模块代码生成</li>
+<li>更强的验证与测试能力</li>
+</ul>
+<h3 id="长期"><a href="#长期" class="headerlink" title="长期"></a>长期</h3><ul>
+<li>AI 能提出多个“期望备选方案”</li>
+<li>基于使用数据自动优化期望</li>
+<li>与 no-code &#x2F; low-code 平台整合</li>
+<li>跨团队的期望市场（Expectation Marketplaces）</li>
+</ul>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>期望驱动的智能体开发（EDAD）代表 AI 时代软件构建方式的一次范式转移。通过聚焦清晰期望、让个体开发者借助 AI 获得强大执行力、并拥抱动态迭代，EDAD 能在保持高代码质量的同时带来前所未有的效率。</p>
+<p>它并不适合所有人——它需要有经验、并愿意用不同方式思考开发过程的开发者。但一旦掌握，你将更快构建复杂系统，同时获得“做出架构、而不是被实现细节拖累”的创造满足感。</p>
+<p>**EDAD 优化效率与满足感，而不是可预测性。**它是目前最快的方法，即使你无法预测何时完成。把想象变成现实的巨大满足感，是这套方法的核心回报。</p>
+<p><strong>从想象开始，以现实收尾，让 AI 架起桥梁。</strong></p>
+<p>如需一个完整的现实案例，请参见 <strong>附录 A：KohakuHub 生态</strong>——三个互联的生产系统（10 万+ 行）在 2 个月内完成。</p>
+<hr>
+<h2 id="关于这套方法论"><a href="#关于这套方法论" class="headerlink" title="关于这套方法论"></a>关于这套方法论</h2><p>EDAD 源自构建 KohakuHub 生态的实践：一个开发者借助 AI 智能体在 2 个月内完成三个互联系统，总计 10 万行以上代码。这篇文档总结了那段密集开发的经验，并会随着新实践持续演进。</p>
+<p>该方法论尤其适合：</p>
+<ul>
+<li>虚拟实验室与全远程研究组织</li>
+<li>以速度与创新优先、而非排期可预测的创业公司</li>
+<li>重视探索的研究型开发</li>
+<li>异步贡献的开源项目</li>
+</ul>
+<p><strong>这是一个“活的”方法论。欢迎贡献、改进与案例分享。</strong></p>
+<hr>
+<p><strong>作者</strong>：KohakuBlueleaf（Shih‑Ying Yeh）<br><strong>联系</strong>：<a href="mailto:&#x6b;&#x6f;&#104;&#x61;&#107;&#117;&#64;&#107;&#x62;&#x6c;&#117;&#x65;&#x6c;&#x65;&#97;&#x66;&#46;&#x6e;&#101;&#x74;">kohaku@kblueleaf.net</a><br><strong>社区</strong>：<a target="_blank" rel="noopener" href="https://discord.gg/xWYrkyvJ2s">Discord</a></p>
+<p><em>最后更新：2025 年 11 月</em><br><em>版本：1.0</em></p>
+<hr>
+<h2 id="附录-A：真实案例——KohakuHub-生态"><a href="#附录-A：真实案例——KohakuHub-生态" class="headerlink" title="附录 A：真实案例——KohakuHub 生态"></a>附录 A：真实案例——KohakuHub 生态</h2><h3 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h3><p><strong>目标</strong>：做一个可自托管的 HuggingFace 与 WandB 替代方案<br><strong>周期</strong>：2 个月<br><strong>团队</strong>：单人开发者 + AI 智能体<br><strong>产出</strong>：三个互联系统，总计 10 万+ 行生产级代码  </p>
+<h3 id="三个系统"><a href="#三个系统" class="headerlink" title="三个系统"></a>三个系统</h3><h4 id="1-KohakuHub（约-6–7-万行）"><a href="#1-KohakuHub（约-6–7-万行）" class="headerlink" title="1. KohakuHub（约 6–7 万行）"></a>1. KohakuHub（约 6–7 万行）</h4><p><strong>用途</strong>：可自托管的 HuggingFace 替代品</p>
+<p><strong>核心期望</strong>：“为 AI 模型提供 Git 一样的版本管理，并保持 HuggingFace 的即插即用兼容性”</p>
+<p><strong>实现的关键特性：</strong></p>
+<ul>
+<li>HuggingFace 兼容 API（可替代 <code>huggingface_hub</code>）</li>
+<li>Git 式版本管理（通过 LakeFS 集成）</li>
+<li>S3 存储后端（MinIO&#x2F;AWS S3&#x2F;Cloudflare R2）</li>
+<li>原生 Git clone 支持（含 LFS）</li>
+<li>Vue 3 Web 界面：文件浏览、编辑、提交历史</li>
+<li>完整 CLI 工具（带交互式 TUI 模式）</li>
+<li>管理后台：用户与仓库管理</li>
+<li>组织（Organizations）与基于角色的访问控制</li>
+<li>配额管理系统</li>
+</ul>
+<p><strong>技术栈：</strong></p>
+<ul>
+<li>后端：FastAPI、LakeFS（REST API）、PostgreSQL&#x2F;SQLite</li>
+<li>存储：S3 兼容（MinIO），LakeFS 用于版本管理</li>
+<li>前端：Vue 3</li>
+<li>纯 Python 实现的 Git 服务器</li>
+</ul>
+<p><strong>EDAD 循环：</strong></p>
+<ul>
+<li><strong>想象</strong>：在多年对 HuggingFace 政策变化的挫败积累后，集中想象只用了几天</li>
+<li><strong>关键洞察</strong>：目标足够清晰时，想象期无需很长——这就是极致效率</li>
+<li><strong>期望</strong>：“把 HuggingFace 仓库像 Git 仓库一样 clone 到我的服务器，像 Git 一样版本化，兼容标准工具，API 完整兼容”</li>
+<li><strong>实现</strong>：2 个月（与其它项目重叠推进）</li>
+<li><strong>验证</strong>：与 HuggingFace 生态“即插即用”兼容</li>
+</ul>
+<p><strong>示例：DatasetViewer（功能级循环）</strong></p>
+<ul>
+<li><strong>触发</strong>：“想不 clone 就能看数据集，用查询模式浏览”</li>
+<li><strong>想象</strong>：花 1–2 天思考 UX——“浏览文件结构、预览内容、搜索&#x2F;过滤”</li>
+<li><strong>期望</strong>：“提供 Web 界面在不下载的情况下探索数据集结构与内容”</li>
+<li><strong>实现</strong>：几天（FastAPI 路由 + Vue 组件 + S3 集成）</li>
+<li><strong>结果</strong>：可直接在 Web UI 浏览与查询数据集</li>
+</ul>
+<h4 id="2-KohakuBoard（约-3–4-万行）"><a href="#2-KohakuBoard（约-3–4-万行）" class="headerlink" title="2. KohakuBoard（约 3–4 万行）"></a>2. KohakuBoard（约 3–4 万行）</h4><p><strong>用途</strong>：高性能 ML 实验追踪（WandB 替代品）</p>
+<p><strong>核心期望</strong>：“本地优先（local-first），训练零开销（zero training overhead）”</p>
+<p><strong>实现的关键特性：</strong></p>
+<ul>
+<li>非阻塞日志记录（&lt;0.1ms 延迟）</li>
+<li>持续吞吐 20,000+ 指标&#x2F;秒</li>
+<li>后台 writer 进程 + 50,000 容量消息队列</li>
+<li>丰富数据类型：标量、图片、视频、表格、直方图</li>
+<li>基于 WebGL 的可视化，可处理 100K+ 数据点</li>
+<li>本地优先：<code>kobo open</code> 直接查看实验，不需要服务器</li>
+<li>混合存储：KohakuVault（列式）+ SQLite</li>
+<li>直方图压缩：体积减少 99.8%</li>
+</ul>
+<p><strong>技术栈：</strong></p>
+<ul>
+<li>客户端：纯 Python + 后台 writer 进程</li>
+<li>存储：KohakuVault（自研 Rust + SQLite 引擎）</li>
+<li>后端：FastAPI</li>
+<li>前端：Vue 3 + Plotly.js WebGL 图表</li>
+</ul>
+<p><strong>EDAD 循环：</strong></p>
+<ul>
+<li><strong>想象</strong>：“如果记录日志永远不拖慢训练？如果不用服务器也能立刻看结果？”</li>
+<li><strong>期望</strong>：“日志调用要在微秒级返回，viewer 必须能顺滑显示 100K+ 点”</li>
+<li><strong>实现</strong>：核心用数周完成，持续迭代</li>
+<li><strong>验证</strong>：真实训练循环中零开销；100K+ 点图表顺滑渲染</li>
+</ul>
+<h4 id="3-KohakuVault（约-1-5–2-万行）"><a href="#3-KohakuVault（约-1-5–2-万行）" class="headerlink" title="3. KohakuVault（约 1.5–2 万行）"></a>3. KohakuVault（约 1.5–2 万行）</h4><p><strong>用途</strong>：高性能存储库</p>
+<p><strong>核心期望</strong>：“基于 SQLite 的存储，但速度接近内存结构”</p>
+<p><strong>实现的关键特性：</strong></p>
+<ul>
+<li>Rust 核心 + Python 绑定（PyO3）</li>
+<li>KVault：带 B+Tree 索引的键值 blob 存储</li>
+<li>ColumnVault：时序数据列式存储</li>
+<li>DataPacker：零拷贝序列化</li>
+<li>写回缓存：16 KiB payload 下 24k ops&#x2F;s</li>
+<li>列操作：缓存下 12.5M ops&#x2F;s</li>
+<li>CSBTree 与 SkipList 实现，支持有序访问</li>
+</ul>
+<p><strong>技术栈：</strong></p>
+<ul>
+<li>核心：Rust + rusqlite</li>
+<li>绑定：PyO3</li>
+<li>存储：单 SQLite 文件 + WAL</li>
+</ul>
+<p><strong>EDAD 循环：</strong></p>
+<ul>
+<li><strong>想象</strong>：“SQLite 很适合，但我需要它更快”</li>
+<li><strong>期望</strong>：“Rust 加速 I&#x2F;O，同时保留 Python 友好 API，缓存友好，微秒级延迟”</li>
+<li><strong>实现</strong>：核心接口数周完成，持续优化</li>
+<li><strong>验证</strong>：基于 benchmark 驱动开发，比朴素方案快 450 倍</li>
+</ul>
+<h3 id="项目级-EDAD-循环"><a href="#项目级-EDAD-循环" class="headerlink" title="项目级 EDAD 循环"></a>项目级 EDAD 循环</h3><h4 id="全局想象（多年）"><a href="#全局想象（多年）" class="headerlink" title="全局想象（多年）"></a>全局想象（多年）</h4><p>多年积累的 ML 基础设施经验：</p>
+<ul>
+<li>HuggingFace：生态很强，但有供应商锁定、难自托管、版本管理有限</li>
+<li>WandB：记录慢、依赖云、团队规模大时昂贵</li>
+<li>传统方案：搭建复杂、开发体验差</li>
+</ul>
+<p><strong>愿景</strong>：“如果我能像 clone Git 仓库一样 clone HuggingFace 仓库，同时用零开销追踪实验，会怎样？”</p>
+<h4 id="项目级期望（数月）"><a href="#项目级期望（数月）" class="headerlink" title="项目级期望（数月）"></a>项目级期望（数月）</h4><p><strong>概念版期望文档：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">系统：自托管 ML 基础设施</span><br><span class="line"></span><br><span class="line">组件：</span><br><span class="line">1. 模型/数据集托管 + Git 式版本管理</span><br><span class="line">   - HuggingFace API 兼容</span><br><span class="line">   - 原生 Git 操作</span><br><span class="line">   - S3 存储后端</span><br><span class="line"></span><br><span class="line">2. 零开销实验追踪</span><br><span class="line">   - 非阻塞日志</span><br><span class="line">   - 本地优先查看</span><br><span class="line">   - 丰富可视化</span><br><span class="line"></span><br><span class="line">3. 高性能存储引擎</span><br><span class="line">   - SQLite 基础</span><br><span class="line">   - Rust 性能</span><br><span class="line">   - Python 友好</span><br><span class="line"></span><br><span class="line">成功标准：</span><br><span class="line">- 可替代 HuggingFace hub（即插即用）</span><br><span class="line">- 训练开销 &lt; 0.1ms</span><br><span class="line">- 图表可处理 100K+ 点</span><br><span class="line">- 2 个月完成实现</span><br></pre></td></tr></table></figure>
+
+<h4 id="模块级循环（并行）"><a href="#模块级循环（并行）" class="headerlink" title="模块级循环（并行）"></a>模块级循环（并行）</h4><p>三条并行 EDAD 循环同时推进：</p>
+<p><strong>KohakuHub 循环：</strong></p>
+<ul>
+<li>第 1–2 周：LakeFS 集成的期望与实现</li>
+<li>第 2–4 周：API 兼容性的期望与实现  </li>
+<li>第 3–6 周：Git server 的期望与实现</li>
+<li>第 5–8 周：Web UI 的期望与实现</li>
+<li>持续：根据使用反馈迭代</li>
+</ul>
+<p><strong>KohakuBoard 循环：</strong></p>
+<ul>
+<li>第 1 周：非阻塞架构的期望</li>
+<li>第 1–2 周：后台 writer 实现</li>
+<li>第 2–3 周：存储层期望（引出 KohakuVault）</li>
+<li>第 3–5 周：WebGL 可视化期望与实现</li>
+<li>第 5–8 周：丰富数据类型与直方图压缩</li>
+<li>持续：性能优化</li>
+</ul>
+<p><strong>KohakuVault 循环：</strong></p>
+<ul>
+<li>第 2 周：“SQLite 不够快”的发现</li>
+<li>第 2–3 周：Rust 引擎期望与初版实现</li>
+<li>第 3–4 周：KVault 与 ColumnVault 接口</li>
+<li>第 4–6 周：缓存系统与优化</li>
+<li>第 6–8 周：高级特性（CSBTree、SkipList）</li>
+<li>持续：基准驱动的迭代</li>
+</ul>
+<h4 id="功能级示例"><a href="#功能级示例" class="headerlink" title="功能级示例"></a>功能级示例</h4><p><strong>示例 1：直方图压缩（日级循环）</strong></p>
+<ul>
+<li><strong>触发</strong>：“直方图太占空间”</li>
+<li><strong>想象</strong>：“能不能压到 99% 且不损信息？”</li>
+<li><strong>期望</strong>：“量化 + 变长编码，目标 99.8% 减小”</li>
+<li><strong>实现</strong>：1 天（算法设计 + 实现）</li>
+<li><strong>验证</strong>：用真实梯度数据跑 benchmark</li>
+<li><strong>结果</strong>：达到 99.8% 体积减少</li>
+</ul>
+<p><strong>示例 2：DatasetViewer（周级循环）</strong></p>
+<ul>
+<li><strong>触发</strong>：“不 clone 全仓库也要看数据集”</li>
+<li><strong>想象</strong>：“浏览文件、预览内容、过滤&#x2F;搜索，不下载”</li>
+<li><strong>期望</strong>：“Web 文件浏览 + 预览 + 查询模式”</li>
+<li><strong>实现</strong>：1 周（后端路由 + 前端组件 + S3 流式）</li>
+<li><strong>验证</strong>：可浏览&#x2F;查询多 GB 数据集而无需 clone</li>
+<li><strong>结果</strong>：完整的数据集探索 Web UI</li>
+</ul>
+<p><strong>示例 3：WebGL 图表优化（周级循环）</strong></p>
+<ul>
+<li><strong>触发</strong>：“图表在 50K+ 点卡顿”</li>
+<li><strong>想象</strong>：“商业平台这么顺滑，为什么我的不行？”</li>
+<li><strong>期望</strong>：“用 Plotly.js WebGL 模式 + 智能降采样”</li>
+<li><strong>实现</strong>：3 天（调研 + 实现）</li>
+<li><strong>验证</strong>：测试 100K、500K、1M 点</li>
+<li><strong>结果</strong>：100K+ 点顺滑渲染</li>
+</ul>
+<p><strong>示例 4：Run 管理重构（周级循环）</strong></p>
+<ul>
+<li><strong>触发</strong>：“当前 run 管理繁琐，用户想要更简单”</li>
+<li><strong>想象</strong>：“如果用户就直接用文件夹呢？大家都懂文件夹管理”</li>
+<li><strong>期望</strong>：用自然语言传给 AI：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">本地日志结构：&lt;folder&gt;/&lt;project&gt;/&lt;4char_random&gt;_&lt;run_name&gt;</span><br><span class="line">用户通过删/改文件夹名直接管理 runs</span><br><span class="line">run_id = 文件夹名（承认用户会改名）</span><br><span class="line">同时适用于本地与远端</span><br></pre></td></tr></table></figure></li>
+<li><strong>实现</strong>：1 周（前端 + 后端 + logger 修改）</li>
+<li><strong>验证</strong>：文件夹操作管理 run；kobo open&#x2F;inspect 等工具正常</li>
+<li><strong>结果</strong>：UX 大幅简化，用户以最自然的方式管理 runs</li>
+<li><strong>关键点</strong>：这体现了 EDAD 的实践形态——对话式期望 + 关键逻辑（4 位随机串、目录结构），而非死板模板</li>
+</ul>
+<h3 id="观察到的关键-EDAD-模式"><a href="#观察到的关键-EDAD-模式" class="headerlink" title="观察到的关键 EDAD 模式"></a>观察到的关键 EDAD 模式</h3><h4 id="1-期望级联（Expectation-Cascade）"><a href="#1-期望级联（Expectation-Cascade）" class="headerlink" title="1) 期望级联（Expectation Cascade）"></a>1) 期望级联（Expectation Cascade）</h4><p>项目级期望（“HuggingFace 替代品”）向下级联：</p>
+<ul>
+<li>→ 模块级期望（“Git 式版本管理”）<ul>
+<li>→ 功能级期望（“LakeFS 集成”）<ul>
+<li>→ 实现细节（“REST API 封装”）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-跨模块依赖"><a href="#2-跨模块依赖" class="headerlink" title="2) 跨模块依赖"></a>2) 跨模块依赖</h4><p>KohakuBoard 的存储需求催生了 KohakuVault：</p>
+<ul>
+<li><strong>原计划</strong>：用标准 SQLite</li>
+<li><strong>现实</strong>：对 20K ops&#x2F;s 太慢</li>
+<li><strong>新期望</strong>：做自研存储引擎</li>
+<li><strong>结果</strong>：KohakuVault 成为独立项目</li>
+</ul>
+<h4 id="3-期望演进"><a href="#3-期望演进" class="headerlink" title="3) 期望演进"></a>3) 期望演进</h4><p>HuggingFace 兼容性期望逐步提升：</p>
+<ul>
+<li><strong>初期</strong>：“支持基本上传&#x2F;下载”</li>
+<li><strong>现实</strong>：用户需要完整 Git 操作</li>
+<li><strong>修订</strong>：“加入 Git clone 支持”</li>
+<li><strong>后来</strong>：“加入 Git LFS 协议”</li>
+</ul>
+<h4 id="4-循环时长可变"><a href="#4-循环时长可变" class="headerlink" title="4) 循环时长可变"></a>4) 循环时长可变</h4><ul>
+<li>小功能&#x2F;修 bug：小时级</li>
+<li>核心系统：周级（后台 writer、Git server）</li>
+<li>整体生态：月级（2 个月密集开发）</li>
+<li>持续演进：年级（根据使用反馈不断迭代）</li>
+</ul>
+<h3 id="结果与影响"><a href="#结果与影响" class="headerlink" title="结果与影响"></a>结果与影响</h3><p><strong>量化：</strong></p>
+<ul>
+<li>约 10–13 万行生产代码</li>
+<li>3 个互联系统</li>
+<li>2 个月交付</li>
+<li>单人开发者 + AI 智能体</li>
+<li>没有技术债累积</li>
+</ul>
+<p><strong>质化：</strong></p>
+<ul>
+<li>达成 HuggingFace 即插即用兼容</li>
+<li>实验追踪零训练开销</li>
+<li>100K+ 点可视化顺滑</li>
+<li>自托管基础设施真正可用</li>
+<li>社区开始采用</li>
+</ul>
+<p><strong>效率对比：</strong></p>
+<ul>
+<li>传统团队估算：5–8 工程师、12–18 个月</li>
+<li>EDAD：1 人 + AI，2 个月</li>
+<li>生产力倍数：约 30–50 倍</li>
+</ul>
+<h3 id="经验教训"><a href="#经验教训" class="headerlink" title="经验教训"></a>经验教训</h3><ol>
+<li><strong>从用户体验出发</strong>：三个系统都从“用起来是什么感觉”开始  </li>
+<li><strong>让期望驱动架构</strong>：KohakuVault 来自 KohakuBoard 的性能期望  </li>
+<li><strong>相信循环</strong>：当 Git server 看似不可能，EDAD 找到了纯 Python 方案  </li>
+<li><strong>拥抱可变节奏</strong>：有些天一口气做完功能，有些天只打磨一个算法  </li>
+<li><strong>记录期望，而非计划</strong>：不要甘特图，不要 sprint，只要清晰期望  </li>
+<li><strong>把 AI 当实现伙伴</strong>：你专注 “what&#x2F;why”，AI 负责 “how” 的实现细节  </li>
+<li><strong>以集成为中心，而非计划为中心</strong>：系统能自然集成，因为它们共享根期望</li>
+</ol>
+<hr>
+<p>原文链接：<br><a target="_blank" rel="noopener" href="https://hackmd.io/@KBlueLeaf/Hyoj4qj1bx">https://hackmd.io/@KBlueLeaf/Hyoj4qj1bx</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/02/16/%E2%80%9C%E9%AB%98%E6%95%88%E7%BC%96%E7%A8%8B%E2%80%9D%EF%BC%8C%E5%85%B6%E5%AE%9E%E6%98%AF%E6%96%B0%E5%9E%8B%E6%88%90%E7%98%BE/" rel="prev" title="“高效编程”，其实是新型成瘾">
+                  <i class="fa fa-angle-left"></i> “高效编程”，其实是新型成瘾
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">LCS</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">16k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">58 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/6666zstu" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<div id="welcome-overlay">
+  <div class="welcome-content">
+    <div class="welcome-top">👋 欢迎你来到</div>
+    <h1 class="welcome-title">LCS 的数学与人工智能世界</h1>
+    <p class="welcome-subtitle">探索数学之美，拥抱 AI 未来</p>
+    <button id="enter-blog-btn">进入博客 →</button>
+  </div>
+</div>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const overlay = document.getElementById('welcome-overlay');
+  const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '';
+  const hasSeenWelcome = sessionStorage.getItem('hasSeenWelcome');
+
+  // 如果不是首页，或者已经在本次会话中看过欢迎页，则直接移除
+  if (!isHomePage || hasSeenWelcome) {
+    if (overlay) overlay.remove();
+    return;
+  }
+
+  // 显示逻辑（点击进入博客后记录状态）
+  const btn = document.getElementById('enter-blog-btn');
+  if (overlay && btn) {
+    btn.onclick = function() {
+      overlay.style.opacity = '0';
+      sessionStorage.setItem('hasSeenWelcome', 'true'); // 记录状态
+      setTimeout(function() {
+        overlay.remove();
+      }, 800);
+    };
+  }
+});
+</script>
+
+</body>
+</html>

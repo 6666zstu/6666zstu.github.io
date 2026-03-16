@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"6666zstu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#6c5ce7","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="📝 我的第一篇个人博客随笔">
+    <meta name="description" content="根据 Ado Kukic 于 2026 年 1 月 1 日发布的文章 Advent of Claude: 31 Days of Claude Code 精选、汉化与重组。本文不是逐段直译，而是从 31 个分节里挑出最值得初学者先掌握的部分。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="当AI无所不能——全程使用antigravity建立博客网站">
-<meta property="og:url" content="https://6666zstu.github.io/2026/02/12/%E5%BD%93AI%E6%97%A0%E6%89%80%E4%B8%8D%E8%83%BD%E2%80%94%E2%80%94%E5%85%A8%E7%A8%8B%E4%BD%BF%E7%94%A8antigravity%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:title" content="claude code入门">
+<meta property="og:url" content="https://6666zstu.github.io/2026/03/16/claude-code%E5%85%A5%E9%97%A8/index.html">
 <meta property="og:site_name" content="LCS 的数学与 AI 世界">
-<meta property="og:description" content="📝 我的第一篇个人博客随笔">
+<meta property="og:description" content="根据 Ado Kukic 于 2026 年 1 月 1 日发布的文章 Advent of Claude: 31 Days of Claude Code 精选、汉化与重组。本文不是逐段直译，而是从 31 个分节里挑出最值得初学者先掌握的部分。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-12T10:43:44.000Z">
-<meta property="article:modified_time" content="2026-02-13T16:23:14.384Z">
+<meta property="article:published_time" content="2026-03-16T14:49:38.000Z">
+<meta property="article:modified_time" content="2026-03-16T14:50:47.088Z">
 <meta property="article:author" content="LCS">
 <meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="数学">
@@ -39,13 +39,13 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://6666zstu.github.io/2026/02/12/%E5%BD%93AI%E6%97%A0%E6%89%80%E4%B8%8D%E8%83%BD%E2%80%94%E2%80%94%E5%85%A8%E7%A8%8B%E4%BD%BF%E7%94%A8antigravity%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/">
+<link rel="canonical" href="https://6666zstu.github.io/2026/03/16/claude-code%E5%85%A5%E9%97%A8/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://6666zstu.github.io/2026/02/12/%E5%BD%93AI%E6%97%A0%E6%89%80%E4%B8%8D%E8%83%BD%E2%80%94%E2%80%94%E5%85%A8%E7%A8%8B%E4%BD%BF%E7%94%A8antigravity%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/","path":"2026/02/12/当AI无所不能——全程使用antigravity建立博客/","title":"当AI无所不能——全程使用antigravity建立博客网站"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://6666zstu.github.io/2026/03/16/claude-code%E5%85%A5%E9%97%A8/","path":"2026/03/16/claude-code入门/","title":"claude code入门"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>当AI无所不能——全程使用antigravity建立博客网站 | LCS 的数学与 AI 世界</title>
+<title>claude code入门 | LCS 的数学与 AI 世界</title>
   
 
 
@@ -171,7 +171,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%8E%AF-%E5%BB%BA%E7%AB%99%E5%8A%A8%E6%9C%BA"><span class="nav-number">1.</span> <span class="nav-text">🎯 建站动机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E2%9A%A1-%E6%95%88%E7%8E%87%E7%A7%92%E6%9D%80"><span class="nav-number">2.</span> <span class="nav-text">⚡ 效率秒杀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%A7%A9-%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.</span> <span class="nav-text">🧩 遇到的问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%F0%9F%94%AE-%E6%9C%AA%E6%9D%A5%E8%A7%84%E5%88%92"><span class="nav-number">4.</span> <span class="nav-text">🔮 未来规划</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E7%BB%93%E8%AE%BA"><span class="nav-number">1.</span> <span class="nav-text">核心结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E6%96%B0%E9%A1%B9%E7%9B%AE%E5%85%88%E5%81%9A-init"><span class="nav-number">2.</span> <span class="nav-text">1. 新项目先做 &#x2F;init</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%B0%91%E8%AE%B2%E7%A9%BA%E8%AF%9D%EF%BC%8C%E5%A4%9A%E7%BB%99%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="nav-number">3.</span> <span class="nav-text">2. 少讲空话，多给上下文</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%85%88%E8%AE%A1%E5%88%92%EF%BC%8C%E5%90%8E%E6%89%A7%E8%A1%8C"><span class="nav-number">4.</span> <span class="nav-text">3. 先计划，后执行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E5%AD%A6%E4%BC%9A%E6%8A%8A%E4%BC%9A%E8%AF%9D%E5%BD%93%E9%A1%B9%E7%9B%AE%E8%B5%84%E4%BA%A7"><span class="nav-number">5.</span> <span class="nav-text">4. 学会把会话当项目资产</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%E6%9D%83%E9%99%90%E8%BE%B9%E7%95%8C%E6%AF%94%E2%80%9C%E5%85%A8%E8%87%AA%E5%8A%A8%E2%80%9D%E6%9B%B4%E9%87%8D%E8%A6%81"><span class="nav-number">6.</span> <span class="nav-text">5. 权限边界比“全自动”更重要</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-%E7%9C%9F%E6%AD%A3%E8%83%BD%E6%8B%89%E5%BC%80%E5%B7%AE%E8%B7%9D%E7%9A%84%EF%BC%8C%E6%98%AF%E5%8F%AF%E5%A4%8D%E7%94%A8%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="nav-number">7.</span> <span class="nav-text">6. 真正能拉开差距的，是可复用工作流</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Headless-%E6%A8%A1%E5%BC%8F"><span class="nav-number">7.1.</span> <span class="nav-text">Headless 模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4"><span class="nav-number">7.2.</span> <span class="nav-text">自定义命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Skills-Subagents-Plugins"><span class="nav-number">7.3.</span> <span class="nav-text">Skills &#x2F; Subagents &#x2F; Plugins</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%99%E5%88%9D%E5%AD%A6%E8%80%85%E7%9A%84-7-%E6%9D%A1%E8%90%BD%E5%9C%B0%E5%BB%BA%E8%AE%AE"><span class="nav-number">8.</span> <span class="nav-text">给初学者的 7 条落地建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E8%AF%AD"><span class="nav-number">9.</span> <span class="nav-text">结语</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -237,7 +237,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://6666zstu.github.io/2026/02/12/%E5%BD%93AI%E6%97%A0%E6%89%80%E4%B8%8D%E8%83%BD%E2%80%94%E2%80%94%E5%85%A8%E7%A8%8B%E4%BD%BF%E7%94%A8antigravity%E5%BB%BA%E7%AB%8B%E5%8D%9A%E5%AE%A2/">
+    <link itemprop="mainEntityOfPage" href="https://6666zstu.github.io/2026/03/16/claude-code%E5%85%A5%E9%97%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://github.com/6666zstu.png">
@@ -250,12 +250,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="当AI无所不能——全程使用antigravity建立博客网站 | LCS 的数学与 AI 世界">
+      <meta itemprop="name" content="claude code入门 | LCS 的数学与 AI 世界">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          当AI无所不能——全程使用antigravity建立博客网站
+          claude code入门
         </h1>
 
         <div class="post-meta-container">
@@ -265,15 +265,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2026-02-12 18:43:44" itemprop="dateCreated datePublished" datetime="2026-02-12T18:43:44+08:00">2026-02-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-02-14 00:23:14" itemprop="dateModified" datetime="2026-02-14T00:23:14+08:00">2026-02-14</time>
+      <time title="创建时间：2026-03-16 22:49:38 / 修改时间：22:50:47" itemprop="dateCreated datePublished" datetime="2026-03-16T22:49:38+08:00">2026-03-16</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,14 +286,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>382</span>
+      <span>1.6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
+      <span>6 分钟</span>
     </span>
 </div>
 
@@ -309,12 +303,103 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>📝 我的第一篇个人博客随笔</p>
+    <div class="post-body" itemprop="articleBody"><blockquote>
+<p>根据 Ado Kukic 于 2026 年 1 月 1 日发布的文章 <a target="_blank" rel="noopener" href="https://adocomplete.com/advent-of-claude-2025/">Advent of Claude: 31 Days of Claude Code</a> 精选、汉化与重组。本文不是逐段直译，而是从 31 个分节里挑出最值得初学者先掌握的部分。</p>
+</blockquote>
 <span id="more"></span>
-<h1 id="🎯-建站动机"><a href="#🎯-建站动机" class="headerlink" title="🎯 建站动机"></a>🎯 建站动机</h1><p>我注意到不少的同龄人或者是一些大佬都搞了个博客出来，在里面分享自己的内容。在初步体验 google antigravity 的强大能力后，我决定也发布一个自己的博客。这是我在 AI coding 模式下的第一个 project。</p>
-<h1 id="⚡-效率秒杀"><a href="#⚡-效率秒杀" class="headerlink" title="⚡ 效率秒杀"></a>⚡ 效率秒杀</h1><p>使用 antigravity 调用 anthropic 最新的 claude opus 4.6 thinking 确实是一种秒杀的感觉。我在一开始设置时还出现了问题，导致所有的 run 还得手动确认。但是半个小时 claude 就基本给出了大的框架，一个小时内就已经大体弄完了（中间我自己还耽误了挺久），这个效率简直过于惊为天人。</p>
-<h1 id="🧩-遇到的问题"><a href="#🧩-遇到的问题" class="headerlink" title="🧩 遇到的问题"></a>🧩 遇到的问题</h1><p>即便如此，claude 在应对一些小微场景还是展现出了问题。比如为了我博客背景图片的信息，我与 opus 4.6 互耗一个小时。我反思后得出结论：plan mode 和强大的模型不适合非 0-1 build 一个新项目。浪费 tokens 浪费时间。所以我换成 fast 的 sonnet 4.5，问题马上解决了，也是有点无语。</p>
-<h1 id="🔮-未来规划"><a href="#🔮-未来规划" class="headerlink" title="🔮 未来规划"></a>🔮 未来规划</h1><p>这才是我写的第一篇真正意义上的博客（前面那个是 AI 写的）。我需要熟悉 markdown 格式。文章的话，可能会和公众号同步。后续再说，敬请期待，过年各家厂商开始搞事情了我这不冲浪一下。</p>
+
+<h2 id="核心结论"><a href="#核心结论" class="headerlink" title="核心结论"></a>核心结论</h2><p>原文最有价值的地方，不是教你几个“神奇提示词”，而是说明：<strong>Claude Code 真正强在工作流，而不只是回答能力。</strong></p>
+<p>新手最容易踩的坑，是把它当成一个会写代码的聊天框，随口丢一句“帮我改 bug”。这样当然也能用，但经常会出现两种情况：</p>
+<ul>
+<li>它不知道你的项目约定，改得不贴合</li>
+<li>它一上来就动手，方向还没对齐</li>
+</ul>
+<p>所以，初学者的最佳心法只有一句：</p>
+<blockquote>
+<p>先让 Claude 理解项目，再让它改代码；先让它出计划，再让它执行。</p>
+</blockquote>
+<hr>
+<h2 id="1-新项目先做-init"><a href="#1-新项目先做-init" class="headerlink" title="1. 新项目先做 /init"></a>1. 新项目先做 <code>/init</code></h2><p>这是全文里我最建议立刻照做的一条。</p>
+<p><code>/init</code> 会扫描代码库，并生成 <code>CLAUDE.md</code>，把项目里最重要的信息整理出来，例如：</p>
+<ul>
+<li>怎么构建、测试、运行</li>
+<li>关键目录是做什么的</li>
+<li>代码风格和开发约定</li>
+<li>需要优先知道的架构背景</li>
+</ul>
+<p>这一步的意义非常大。很多时候 Claude 写偏，不是模型差，而是它根本没被“入职培训”。<br>有了 <code>CLAUDE.md</code>，它更像一个了解团队规则的协作者，而不是纯靠猜的外援。</p>
+<p>如果你愿意再进一步，还可以把专题规则放进 <code>.claude/rules/</code>，例如测试规范、安全要求、接口约束等。<br>但对初学者来说，先记住一句话就够了：<strong>每个项目最好都先跑一次 <code>/init</code>。</strong></p>
+<hr>
+<h2 id="2-少讲空话，多给上下文"><a href="#2-少讲空话，多给上下文" class="headerlink" title="2. 少讲空话，多给上下文"></a>2. 少讲空话，多给上下文</h2><p>原文反复体现的一点是：<strong>上下文比花哨提示词更重要。</strong></p>
+<p>Claude Code 支持用 <code>@</code> 引用文件和目录，例如：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@src/auth.ts</span><br><span class="line">@src/routes/</span><br></pre></td></tr></table></figure>
+
+<p>这会比“帮我看一下登录为什么坏了”有效得多，因为你把真正相关的代码直接交给了它。</p>
+<p>一个更适合新手模仿的提问方式是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">请检查 @src/auth.ts 和 @src/routes/login.ts</span><br><span class="line">登录接口返回 500</span><br><span class="line">先帮我定位原因和最小修复方案，不要直接大改</span><br></pre></td></tr></table></figure>
+
+<p>这类提问通常更稳，因为它同时说清了三件事：</p>
+<ul>
+<li>看哪里</li>
+<li>要做什么</li>
+<li>不要做得太激进</li>
+</ul>
+<p>很多人以为 AI 的关键在“会不会写提示词”，其实更关键的是：<strong>你有没有把问题边界交代清楚。</strong></p>
+<hr>
+<h2 id="3-先计划，后执行"><a href="#3-先计划，后执行" class="headerlink" title="3. 先计划，后执行"></a>3. 先计划，后执行</h2><p>如果只能从全文里选一个最值得养成的习惯，我会选 <strong>Plan Mode</strong>。</p>
+<p>它的价值在于：Claude 可以先读代码、查依赖、理解结构、列出方案，但<strong>不会立刻改文件</strong>。这对新手特别友好，因为你最怕的不是 AI 不会写，而是它写得太快、改得太多。</p>
+<p>一个实用模板可以这样写：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">先进入计划模式。</span><br><span class="line">阅读 @src 和测试目录，告诉我：</span><br><span class="line">1. 这个功能最可能改哪些文件</span><br><span class="line">2. 最小实现方案是什么</span><br><span class="line">3. 风险点有哪些</span><br><span class="line">先不要编辑代码</span><br></pre></td></tr></table></figure>
+
+<p>当 Claude 先给你路线图，再进入实现阶段，失控概率会明显下降。</p>
+<hr>
+<h2 id="4-学会把会话当项目资产"><a href="#4-学会把会话当项目资产" class="headerlink" title="4. 学会把会话当项目资产"></a>4. 学会把会话当项目资产</h2><p>原文里有几个很容易被忽视，但其实非常实用的能力：</p>
+<ul>
+<li><code>--continue</code></li>
+<li><code>--resume</code></li>
+<li><code>/rename</code></li>
+<li><code>/export</code></li>
+</ul>
+<p>它们说明了一件事：<strong>Claude Code 不是一次性聊天，而是可以延续的工作会话。</strong></p>
+<p>现实开发经常是这样的：上午分析一半，下午再写；今天先定位问题，明天继续重构。<br>如果每次都重新解释背景，你会很累，Claude 也会不断丢上下文。</p>
+<p>所以更好的习惯是：</p>
+<ul>
+<li>给大任务命名</li>
+<li>中断后优先恢复旧会话</li>
+<li>重要方案或过程导出成 markdown 留档</li>
+</ul>
+<p>当你这么用时，Claude Code 才真正开始像“开发搭子”。</p>
+<hr>
+<h2 id="5-权限边界比“全自动”更重要"><a href="#5-权限边界比“全自动”更重要" class="headerlink" title="5. 权限边界比“全自动”更重要"></a>5. 权限边界比“全自动”更重要</h2><p>原文既讲了 <code>/sandbox</code>，也提到了跳过权限确认的危险模式。<br>对初学者来说，我的建议很明确：<strong>先学会设边界，不要急着开全权限。</strong></p>
+<p>原因很简单。你还在磨合 Claude Code 的行为方式时，最稳妥的用法应该是：</p>
+<ul>
+<li>先让它读代码、查状态、跑测试</li>
+<li>对删文件、装依赖、改关键配置保持谨慎</li>
+<li>先在小任务和可回退环境里熟悉它</li>
+</ul>
+<p>等你真的了解它的工作习惯之后，再逐步放宽权限也不迟。</p>
+<p>原文还提到 <code>hooks</code>。你可以把它理解成“自动检查和自动拦截机制”。<br>比如某些操作前先跑检查，某些输出后自动记录。新手暂时不用深挖，但要知道这代表 Claude Code 不只是聊天工具，它还能接入工程化流程。</p>
+<hr>
+<h2 id="6-真正能拉开差距的，是可复用工作流"><a href="#6-真正能拉开差距的，是可复用工作流" class="headerlink" title="6. 真正能拉开差距的，是可复用工作流"></a>6. 真正能拉开差距的，是可复用工作流</h2><p>文章后半部分还提到了不少进阶能力，我认为初学者最值得建立概念的有三类。</p>
+<h3 id="Headless-模式"><a href="#Headless-模式" class="headerlink" title="Headless 模式"></a>Headless 模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">claude -p <span class="string">&quot;Fix the lint errors&quot;</span></span><br><span class="line">git diff | claude -p <span class="string">&quot;Explain these changes&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这说明 Claude 不只能在交互界面里用，还能接进脚本和流水线。</p>
+<h3 id="自定义命令"><a href="#自定义命令" class="headerlink" title="自定义命令"></a>自定义命令</h3><p>把常用 prompt 存成 markdown 后，可以做成斜杠命令。<br>本质上，就是把你常用的“提问套路”固化成按钮。</p>
+<h3 id="Skills-Subagents-Plugins"><a href="#Skills-Subagents-Plugins" class="headerlink" title="Skills &#x2F; Subagents &#x2F; Plugins"></a>Skills &#x2F; Subagents &#x2F; Plugins</h3><p>这些属于更进阶的扩展能力。你可以先把它们理解成：<br>Claude Code 的目标不是“会聊天的 IDE”，而是“可扩展的智能开发环境”。</p>
+<hr>
+<h2 id="给初学者的-7-条落地建议"><a href="#给初学者的-7-条落地建议" class="headerlink" title="给初学者的 7 条落地建议"></a>给初学者的 7 条落地建议</h2><ol>
+<li>新项目先跑 <code>/init</code></li>
+<li>提问尽量附上 <code>@文件</code> 或 <code>@目录</code></li>
+<li>让 Claude 先做计划，再动代码</li>
+<li>用会话恢复能力处理长期任务</li>
+<li>默认保守权限，不要一上来开全权限</li>
+<li>常用 prompt 逐步沉淀成命令</li>
+<li>把 Claude 当协作者，不要只当搜索框</li>
+</ol>
+<hr>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>这篇“31 天 Claude Code”最值得初学者吸收的，不是某个单独技巧，而是一整套协作思路：</p>
+<p><strong>先给背景，先定边界，先做计划，再执行，再沉淀成流程。</strong></p>
+<p>如果你把这几个动作练熟，Claude Code 就不会只是偶尔灵光一现的 AI 工具，而会逐渐变成一个稳定、可复用、能持续帮你推进项目的工程伙伴。</p>
 
     </div>
 
@@ -328,14 +413,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/02/12/welcome/" rel="prev" title="欢迎来到 LCS 的数学与人工智能世界">
-                  <i class="fa fa-angle-left"></i> 欢迎来到 LCS 的数学与人工智能世界
+                <a href="/2026/03/06/3%E6%9C%88%E8%AE%A1%E5%88%92%E6%A2%B3%E7%90%86/" rel="prev" title="3月计划梳理">
+                  <i class="fa fa-angle-left"></i> 3月计划梳理
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/02/16/%E2%80%9C%E9%AB%98%E6%95%88%E7%BC%96%E7%A8%8B%E2%80%9D%EF%BC%8C%E5%85%B6%E5%AE%9E%E6%98%AF%E6%96%B0%E5%9E%8B%E6%88%90%E7%98%BE/" rel="next" title="“高效编程”，其实是新型成瘾">
-                  “高效编程”，其实是新型成瘾 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

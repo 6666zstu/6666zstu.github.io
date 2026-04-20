@@ -22,13 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"6666zstu.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#6c5ce7","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="探索数学与人工智能的无限可能">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LCS 的数学与 AI 世界">
-<meta property="og:url" content="https://6666zstu.github.io/archives/2026/04/index.html">
+    <meta name="description" content="以下内容由我在路上用录音口述，并由Gemini整合而成。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于统计建模的复盘">
+<meta property="og:url" content="https://6666zstu.github.io/2026/04/20/%E5%85%B3%E4%BA%8E%E7%BB%9F%E8%AE%A1%E5%BB%BA%E6%A8%A1%E7%9A%84%E5%A4%8D%E7%9B%98/index.html">
 <meta property="og:site_name" content="LCS 的数学与 AI 世界">
-<meta property="og:description" content="探索数学与人工智能的无限可能">
+<meta property="og:description" content="以下内容由我在路上用录音口述，并由Gemini整合而成。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-04-20T03:15:41.000Z">
+<meta property="article:modified_time" content="2026-04-20T03:23:04.606Z">
 <meta property="article:author" content="LCS">
 <meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="数学">
@@ -37,13 +39,13 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://6666zstu.github.io/archives/2026/04/">
+<link rel="canonical" href="https://6666zstu.github.io/2026/04/20/%E5%85%B3%E4%BA%8E%E7%BB%9F%E8%AE%A1%E5%BB%BA%E6%A8%A1%E7%9A%84%E5%A4%8D%E7%9B%98/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2026/04/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://6666zstu.github.io/2026/04/20/%E5%85%B3%E4%BA%8E%E7%BB%9F%E8%AE%A1%E5%BB%BA%E6%A8%A1%E7%9A%84%E5%A4%8D%E7%9B%98/","path":"2026/04/20/关于统计建模的复盘/","title":"关于统计建模的复盘"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | LCS 的数学与 AI 世界</title>
+<title>关于统计建模的复盘 | LCS 的数学与 AI 世界</title>
   
 
 
@@ -102,7 +104,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">LCS 的数学与 AI 世界</h1>
+      <p class="site-title">LCS 的数学与 AI 世界</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">Mathematics & Artificial Intelligence</p>
@@ -156,7 +158,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -169,6 +171,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E9%80%89%E9%A2%98%E4%B8%8E%E7%A0%B4%E9%A2%98%EF%BC%9A%E9%80%BB%E8%BE%91%E5%85%88%E8%A1%8C%E4%B8%8E%E6%95%B0%E6%8D%AE%E6%9C%AC%E4%BD%8D"><span class="nav-number">1.</span> <span class="nav-text">01 选题与破题：逻辑先行与数据本位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#02-%E5%8D%8F%E4%BD%9C%E6%B5%81%E9%87%8D%E6%9E%84%EF%BC%9A%E5%91%8A%E5%88%AB%E4%BD%8E%E6%95%88%E7%9A%84%E2%80%9C%E5%BE%AE%E4%BF%A1%E7%BE%A4%E4%BC%A0%E6%96%87%E4%BB%B6%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">02 协作流重构：告别低效的“微信群传文件”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#03-%E5%B7%A5%E5%85%B7%E9%93%BE%E9%83%A8%E7%BD%B2%EF%BC%9A%E4%B8%8D%E6%89%93%E6%97%A0%E5%87%86%E5%A4%87%E4%B9%8B%E4%BB%97"><span class="nav-number">3.</span> <span class="nav-text">03 工具链部署：不打无准备之仗</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#04-%E6%8E%92%E7%89%88%E4%B8%8E%E6%A0%BC%E5%BC%8F%EF%BC%9A%E5%BB%BA%E7%AB%8B%E6%A0%87%E5%87%86%E5%8C%96%E6%A8%A1%E6%9D%BF%E6%B1%A0"><span class="nav-number">4.</span> <span class="nav-text">04 排版与格式：建立标准化模板池</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#05-%E6%A0%B8%E5%BF%83%E7%AB%9E%E4%BA%89%E5%8A%9B%EF%BC%9A%E6%8B%92%E7%BB%9D%E7%AE%97%E6%B3%95%E2%80%9C%E9%BB%91%E7%9B%92%E2%80%9D"><span class="nav-number">5.</span> <span class="nav-text">05 核心竞争力：拒绝算法“黑盒”</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -223,109 +226,146 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 12 篇日志。 继续努力。</span>
-      </div>
 
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://6666zstu.github.io/2026/04/20/%E5%85%B3%E4%BA%8E%E7%BB%9F%E8%AE%A1%E5%BB%BA%E6%A8%A1%E7%9A%84%E5%A4%8D%E7%9B%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://github.com/6666zstu.png">
+      <meta itemprop="name" content="LCS">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="LCS 的数学与 AI 世界">
+      <meta itemprop="description" content="探索数学与人工智能的无限可能">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="关于统计建模的复盘 | LCS 的数学与 AI 世界">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于统计建模的复盘
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2026<span class="collection-year-count">12</span></span>
+
+      <time title="创建时间：2026-04-20 11:15:41 / 修改时间：11:23:04" itemprop="dateCreated datePublished" datetime="2026-04-20T11:15:41+08:00">2026-04-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E9%9A%8F%E7%AC%94/" itemprop="url" rel="index"><span itemprop="name">随笔</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>4 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>以下内容由我在路上用录音口述，并由Gemini整合而成。</p>
+<span id="more"></span># 统计建模比赛全流程复盘：工作流重构与避坑指南
+
+<p>刚结束了一段统计建模的比赛周期。脱离了高强度的集中冲刺后，重新审视整个过程，我发现无论是前期的破题逻辑、中期的团队协作，还是后期的排版呈现，都有极大的“工程化”优化空间。</p>
+<p>这篇复盘不仅是对本次比赛的总结，也是为了给未来的项目推进建立一套标准化的 SOP（标准作业程序）。</p>
+<hr>
+<h2 id="01-选题与破题：逻辑先行与数据本位"><a href="#01-选题与破题：逻辑先行与数据本位" class="headerlink" title="01 选题与破题：逻辑先行与数据本位"></a>01 选题与破题：逻辑先行与数据本位</h2><p>在比赛初期，最容易犯的错误就是面对题目直接盲目动手，或者过度依赖 AI 产出大纲，导致最终内容假大空。</p>
+<ul>
+<li><strong>理清底层逻辑</strong>：面对题目，第一步是与指导老师或团队深度对齐核心逻辑。AI 可以辅助发散思维，但绝对不能让 AI 替你做最终的逻辑闭环。</li>
+<li><strong>数据是第一生产力</strong>：特别是遇到偏文字或宏观描述类的题目，不能靠主观臆断或 AI 瞎编。必须提前准备好<strong>数据获取脚本和爬虫工具</strong>，用清洗后的详实数据来支撑建模，这才是拿分的关键。</li>
+</ul>
+<h2 id="02-协作流重构：告别低效的“微信群传文件”"><a href="#02-协作流重构：告别低效的“微信群传文件”" class="headerlink" title="02 协作流重构：告别低效的“微信群传文件”"></a>02 协作流重构：告别低效的“微信群传文件”</h2><p>传统的团队协作模式（在微信群里互发 Word 文档和数据集）在时间紧迫的比赛中简直是一场灾难：版本混乱、文件过期、信息割裂。下一阶段必须重构团队的 Workflow。</p>
+<ul>
+<li><strong>搭建集中式知识库</strong>：彻底摒弃群聊传文件的习惯。建立统一的云端文档库。</li>
+<li><strong>文献统一归档</strong>：所有查阅过的参考文献、数据源说明必须第一时间入库。这不仅方便团队成员随时检索，也能让后续接入的 AI 工具直接读取干净的上下文。</li>
+</ul>
+<h2 id="03-工具链部署：不打无准备之仗"><a href="#03-工具链部署：不打无准备之仗" class="headerlink" title="03 工具链部署：不打无准备之仗"></a>03 工具链部署：不打无准备之仗</h2><p>不要在比赛开始后才去摸索工具怎么用。生产力工具的部署和测试必须前置。</p>
+<ul>
+<li><strong>环境预配置</strong>：无论是本地的 Python 环境、机器学习库，还是辅助文档编写的工具（如 WPS AI），都要在赛前完成实机测试。</li>
+<li><strong>云端算力与 AI 部署</strong>：针对本地算力不足或访问受限的问题，需要提前跑通云端部署方案（如 Open Cloud 相关的云端环境搭建），确保赛时有一个稳定、不受限的“数字实验室”提供支持。</li>
+</ul>
+<h2 id="04-排版与格式：建立标准化模板池"><a href="#04-排版与格式：建立标准化模板池" class="headerlink" title="04 排版与格式：建立标准化模板池"></a>04 排版与格式：建立标准化模板池</h2><p>大语言模型在生成代码和文本上很强，但在精细化排版和复杂图表的位置控制上非常拉胯。如果把排版工作全推给 AI 或留到最后一晚，一定会崩溃。</p>
+<ul>
+<li><strong>人工兜底与模板化</strong>：必须提前根据比赛组委会的要求，制作好标准化的 LaTeX 或 Word 文档模板（包含各级标题、图表题注、公式编号规范）。</li>
+<li><strong>内容与格式分离</strong>：写作时专注内容和逻辑，最后再统一套用模板进行人工微调，保证最终输出的工程级规范。</li>
+</ul>
+<h2 id="05-核心竞争力：拒绝算法“黑盒”"><a href="#05-核心竞争力：拒绝算法“黑盒”" class="headerlink" title="05 核心竞争力：拒绝算法“黑盒”"></a>05 核心竞争力：拒绝算法“黑盒”</h2><p>工具再强，终究只是辅助。如果自身不具备判断模型对错的能力，就会被工具反噬。</p>
+<ul>
+<li><strong>吃透底层原理</strong>：坚决不能盲目套用网上的现成代码或 AI 给出的黑盒模型。对于使用到的<strong>数学公式</strong>和<strong>机器学习算法</strong>，必须扎实推导过一遍，清楚其适用边界、优缺点及运行逻辑。</li>
+<li><strong>知其然，更知其所以然</strong>：只有真正掌握了算法逻辑，才能在论文的“模型评价与检验”部分写出有深度的内容，这也是拉开差距的核心区。</li>
+</ul>
+<hr>
+<blockquote>
+<p><strong>写在最后：</strong><br>优秀的建模不仅是对数学和编程能力的考验，更是一场关于项目管理、信息检索和团队工程化协作的综合战役。补齐工作流上的短板，下次才能赢得更游刃有余。</p>
+</blockquote>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-04-20T11:15:41+08:00"
-              content="2026-04-20">
-          04-20
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/04/20/%E5%85%B3%E4%BA%8E%E7%BB%9F%E8%AE%A1%E5%BB%BA%E6%A8%A1%E7%9A%84%E5%A4%8D%E7%9B%98/" itemprop="url">
-            <span itemprop="name">关于统计建模的复盘</span>
-          </a>
-      </div>
+    <footer class="post-footer">
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2026/04/10/%E6%9C%89%E5%85%B3%E5%BB%BA%E6%A8%A1%E4%B8%8EAI/" rel="prev" title="有关建模与AI">
+                  <i class="fa fa-angle-left"></i> 有关建模与AI
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-04-10T08:34:19+08:00"
-              content="2026-04-10">
-          04-10
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/04/10/%E6%9C%89%E5%85%B3%E5%BB%BA%E6%A8%A1%E4%B8%8EAI/" itemprop="url">
-            <span itemprop="name">有关建模与AI</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-04-09T16:25:25+08:00"
-              content="2026-04-09">
-          04-09
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/04/09/%E4%BB%8A%E6%97%A5%E6%A0%A1%E6%8B%9B%E8%A7%81%E9%97%BB/" itemprop="url">
-            <span itemprop="name">今日校招见闻</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-04-05T20:42:23+08:00"
-              content="2026-04-05">
-          04-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2026/04/05/%E8%A7%84%E5%88%92%E4%B8%80%E4%B8%8B%E5%9B%9B%E6%9C%88/" itemprop="url">
-            <span itemprop="name">规划一下四月</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
+
+
+
 
 </div>
   </main>

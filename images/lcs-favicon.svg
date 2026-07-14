@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LCS">
+  <defs>
+    <linearGradient id="bg" x1="8" y1="8" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#a29bfe"/>
+      <stop offset="1" stop-color="#0984e3"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#0b0e14"/>
+  <rect x="3" y="3" width="58" height="58" rx="12" fill="url(#bg)"/>
+  <text x="32" y="39" fill="#ffffff" font-family="Segoe UI,Arial,sans-serif" font-size="21" font-weight="700" text-anchor="middle">LCS</text>
+</svg>

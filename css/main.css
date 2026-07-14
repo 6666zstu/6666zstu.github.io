@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #ff67ff;
+    background: #136e9e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3169,9 +3169,8 @@ header.header {
     padding: 10px 12px;
   }
 }
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Outfit:wght@400;700&display=swap");
 body {
-  font-family: 'Inter', "PingFang SC", "Microsoft YaHei", sans-serif !important;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif !important;
 }
 h1,
 h2,
@@ -3182,10 +3181,10 @@ h6,
 .site-title,
 .site-subtitle,
 .post-title {
-  font-family: 'Outfit', sans-serif !important;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif !important;
 }
 body {
-  background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80") no-repeat center center fixed !important;
+  background: url("/images/bg.jpg") no-repeat center center fixed !important;
   background-size: cover !important;
   min-height: 100vh;
 }

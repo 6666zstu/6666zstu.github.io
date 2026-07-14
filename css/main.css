@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #136e9e;
+    background: #f5ff79;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3274,6 +3274,81 @@ body {
   line-height: 2;
   letter-spacing: 1px;
 }
+#sidebar-status {
+  margin-top: 10px;
+  padding: 13px 16px;
+  background: rgba(11,14,20,0.72);
+  border: 1px solid rgba(116,185,255,0.22);
+  border-radius: 8px;
+  box-shadow: inset 0 0 18px rgba(108,92,231,0.08);
+  color: rgba(225,230,245,0.82);
+  font-family: Consolas, "Cascadia Code", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.8px;
+}
+.status-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  line-height: 1.9;
+}
+.status-online {
+  justify-content: flex-start;
+  gap: 8px;
+  color: #7bed9f;
+}
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #2ed573;
+  box-shadow: 0 0 9px rgba(46,213,115,0.9);
+  animation: statusPulse 2s ease-in-out infinite;
+}
+.status-clock,
+.status-words {
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.search-shortcut-key {
+  margin-left: 8px;
+  padding: 1px 5px;
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(225,230,245,0.65);
+  font: 0.65rem Consolas, "Cascadia Code", monospace;
+  box-shadow: none;
+}
+#random-post-btn {
+  position: fixed;
+  right: 24px;
+  bottom: 92px;
+  z-index: 1050;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: 1px solid rgba(162,155,254,0.42);
+  border-radius: 50%;
+  background: rgba(20,20,35,0.82);
+  color: #a29bfe;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(0,0,0,0.28), 0 0 12px rgba(108,92,231,0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: transform 0.25s ease, color 0.25s ease, box-shadow 0.25s ease;
+}
+#random-post-btn:hover {
+  color: #fff;
+  transform: translateY(-3px) rotate(8deg);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.34), 0 0 20px rgba(116,185,255,0.35);
+}
+#random-post-btn.is-loading i {
+  animation: randomSpin 0.75s linear infinite;
+}
+#random-post-btn.has-error {
+  color: #ff7675;
+  border-color: rgba(255,118,117,0.55);
+}
 .post-block,
 .header-inner,
 .site-brand-container,
@@ -3456,6 +3531,54 @@ body {
 }
 .post-block {
   margin-bottom: 60px !important;
+}
+@media (hover: hover) and (pointer: fine) {
+  .main-inner.index .post-block {
+    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease !important;
+  }
+  .main-inner.index .post-block:hover {
+    transform: translateY(-4px);
+    border-color: rgba(116,185,255,0.3) !important;
+    box-shadow: 0 13px 36px rgba(0,0,0,0.3), 0 0 22px rgba(108,92,231,0.15) !important;
+  }
+}
+@media (max-width: 767px) {
+  .search-shortcut-key {
+    display: none;
+  }
+  #random-post-btn {
+    right: 16px;
+    bottom: 76px;
+    width: 40px;
+    height: 40px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .status-dot,
+  #random-post-btn.is-loading i {
+    animation: none !important;
+  }
+  #random-post-btn,
+  .main-inner.index .post-block {
+    transition: none !important;
+  }
+  #random-post-btn:hover,
+  .main-inner.index .post-block:hover {
+    transform: none !important;
+  }
+}
+@keyframes statusPulse {
+  0%, 100% {
+    opacity: 0.55;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+@keyframes randomSpin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 @keyframes fadeInDown {
   from {

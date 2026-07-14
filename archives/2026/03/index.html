@@ -213,6 +213,21 @@
   <div class="poem-line">而今迈步从头越。</div>
 </div>
 
+<div id="sidebar-status" aria-label="博客运行状态">
+  <div class="status-line status-online">
+    <span class="status-dot" aria-hidden="true"></span>
+    <span>SYSTEM ONLINE</span>
+  </div>
+  <div class="status-line status-clock">
+    <span>CST</span>
+    <time id="sidebar-clock">--:--:--</time>
+  </div>
+  <div class="status-line status-words">
+    <span id="sidebar-word-count">--</span>
+    <span>WORDS</span>
+  </div>
+</div>
+
         </div>
       </div>
     </div>
@@ -371,6 +386,10 @@
   </div>
 </div>
 
+<button id="random-post-btn" type="button" aria-label="随机阅读一篇文章" title="随机文章">
+  <i class="fa fa-shuffle" aria-hidden="true"></i>
+</button>
+
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const overlay = document.getElementById('welcome-overlay');
@@ -380,19 +399,92 @@ document.addEventListener('DOMContentLoaded', function() {
   // 如果不是首页，或者已经在本次会话中看过欢迎页，则直接移除
   if (!isHomePage || hasSeenWelcome) {
     if (overlay) overlay.remove();
-    return;
+  } else {
+    // 显示逻辑（点击进入博客后记录状态）
+    const btn = document.getElementById('enter-blog-btn');
+    if (overlay && btn) {
+      btn.onclick = function() {
+        overlay.style.opacity = '0';
+        sessionStorage.setItem('hasSeenWelcome', 'true'); // 记录状态
+        setTimeout(function() {
+          overlay.remove();
+        }, 800);
+      };
+    }
   }
 
-  // 显示逻辑（点击进入博客后记录状态）
-  const btn = document.getElementById('enter-blog-btn');
-  if (overlay && btn) {
-    btn.onclick = function() {
-      overlay.style.opacity = '0';
-      sessionStorage.setItem('hasSeenWelcome', 'true'); // 记录状态
-      setTimeout(function() {
-        overlay.remove();
-      }, 800);
+  // 侧边栏北京时间
+  const clock = document.getElementById('sidebar-clock');
+  if (clock) {
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+      timeZone: 'Asia/Shanghai',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+    const updateClock = function() {
+      clock.textContent = formatter.format(new Date());
     };
+    updateClock();
+    setInterval(updateClock, 1000);
+  }
+
+  // 复用页脚已有的站点总字数统计
+  const sidebarWordCount = document.getElementById('sidebar-word-count');
+  const footerWordCount = document.querySelector('.footer-inner [title="站点总字数"]');
+  if (sidebarWordCount && footerWordCount) {
+    sidebarWordCount.textContent = footerWordCount.textContent.trim().toUpperCase();
+  }
+
+  // Ctrl/Cmd + K 打开现有站内搜索
+  const searchTrigger = document.querySelector('.menu-item-search .popup-trigger') || document.querySelector('.popup-trigger');
+  if (searchTrigger) {
+    const shortcut = document.createElement('kbd');
+    shortcut.className = 'search-shortcut-key';
+    shortcut.textContent = /Mac|iPhone|iPad/.test(navigator.platform) ? '⌘ K' : 'Ctrl K';
+    searchTrigger.appendChild(shortcut);
+
+    document.addEventListener('keydown', function(event) {
+      if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 'k') {
+        event.preventDefault();
+        searchTrigger.click();
+      }
+    });
+  }
+
+  // 随机文章
+  const randomButton = document.getElementById('random-post-btn');
+  if (randomButton) {
+    randomButton.addEventListener('click', async function() {
+      randomButton.disabled = true;
+      randomButton.classList.add('is-loading');
+      randomButton.setAttribute('aria-busy', 'true');
+
+      try {
+        const response = await fetch('/search.json');
+        if (!response.ok) throw new Error('Search index unavailable');
+        const posts = await response.json();
+        const currentPath = window.location.pathname;
+        const candidates = posts.filter(function(post) {
+          return post.url && post.url !== currentPath;
+        });
+        if (!candidates.length) throw new Error('No article available');
+
+        const selected = candidates[Math.floor(Math.random() * candidates.length)];
+        window.location.href = selected.url;
+      } catch (error) {
+        randomButton.classList.remove('is-loading');
+        randomButton.classList.add('has-error');
+        randomButton.disabled = false;
+        randomButton.removeAttribute('aria-busy');
+        randomButton.title = '暂时无法读取文章列表';
+        setTimeout(function() {
+          randomButton.classList.remove('has-error');
+          randomButton.title = '随机文章';
+        }, 2000);
+      }
+    });
   }
 });
 </script>

@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #66ff5e;
+    background: #ffd29e;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3183,6 +3183,84 @@ h6,
 .post-title {
   font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif !important;
 }
+.reading-progress-bar {
+  height: 3px !important;
+  background: linear-gradient(90deg, #00d2ff 0%, #6c5ce7 58%, #a29bfe 100%) !important;
+  box-shadow: 0 0 7px rgba(0,210,255,0.65), 0 0 13px rgba(108,92,231,0.42);
+  transform: translateZ(0);
+  transition: width 0.08s linear;
+}
+.post-body {
+  font-size: 1.02em;
+  line-height: 1.92;
+  letter-spacing: 0.025em;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
+  overflow-wrap: break-word;
+}
+.post-body p {
+  margin: 0 0 1.25em;
+}
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  line-height: 1.45;
+  letter-spacing: 0.02em;
+  margin-top: 1.8em;
+  margin-bottom: 0.8em;
+}
+.post-body h2 {
+  padding-bottom: 0.35em;
+  border-bottom: 1px solid rgba(116,185,255,0.2);
+}
+.post-body strong {
+  color: #f2f4ff;
+  font-weight: 650;
+}
+.post-body p a,
+.post-body li a,
+.post-body blockquote a {
+  color: #81c7ff !important;
+  border-bottom: 0 !important;
+  background-image: linear-gradient(90deg, #00d2ff, #a29bfe);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  transition: color 0.2s ease, background-size 0.25s ease;
+}
+.post-body p a:hover,
+.post-body li a:hover,
+.post-body blockquote a:hover {
+  color: #c7e7ff !important;
+  background-size: 100% 1px;
+}
+.post-body blockquote {
+  margin: 1.5em 0;
+  padding: 1em 1.2em;
+  border-left: 3px solid #74b9ff;
+  border-radius: 0 8px 8px 0;
+  background: rgba(20,24,42,0.58);
+  color: rgba(232,235,248,0.86);
+  box-shadow: inset 0 0 18px rgba(108,92,231,0.07);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.post-body blockquote > :last-child {
+  margin-bottom: 0;
+}
+.post-body :not(pre) > code {
+  padding: 0.12em 0.38em;
+  border: 1px solid rgba(162,155,254,0.24);
+  border-radius: 4px;
+  background: rgba(108,92,231,0.12);
+  color: #d6d0ff;
+  font-size: 0.9em;
+  word-break: break-word;
+}
+.post-body ::selection {
+  background: rgba(108,92,231,0.48);
+  color: #fff;
+}
 body {
   background: url("/images/bg.jpg") no-repeat center center fixed !important;
   background-size: cover !important;
@@ -3543,6 +3621,14 @@ body {
   }
 }
 @media (max-width: 767px) {
+  .post-body {
+    font-size: 1em;
+    line-height: 1.82;
+    letter-spacing: 0.015em;
+  }
+  .post-body blockquote {
+    padding: 0.85em 1em;
+  }
   .search-shortcut-key {
     display: none;
   }
@@ -3558,6 +3644,10 @@ body {
   #random-post-btn.is-loading i {
     animation: none !important;
   }
+  .reading-progress-bar,
+  .post-body p a,
+  .post-body li a,
+  .post-body blockquote a,
   #random-post-btn,
   .main-inner.index .post-block {
     transition: none !important;

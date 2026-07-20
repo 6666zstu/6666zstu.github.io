@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #6bffff;
+    background: #fff;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3261,6 +3261,33 @@ h6,
   background: rgba(108,92,231,0.48);
   color: #fff;
 }
+.post-body img {
+  max-width: 100%;
+  height: auto;
+  border: 1px solid rgba(162,155,254,0.2);
+  border-radius: 10px;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.24);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .post-body img:hover {
+    border-color: rgba(116,185,255,0.42);
+    box-shadow: 0 13px 34px rgba(0,0,0,0.3), 0 0 16px rgba(108,92,231,0.12);
+  }
+}
+.post-body .image-caption,
+.post-body figcaption {
+  margin-top: -0.45em;
+  color: rgba(220,224,240,0.62);
+  font-size: 0.86em;
+  line-height: 1.6;
+  text-align: center;
+}
+.post-body .table-container,
+.post-body .mathjax-overflow {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 body {
   background: url("/images/bg.jpg") no-repeat center center fixed !important;
   background-size: cover !important;
@@ -3297,27 +3324,36 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+  padding: 32px;
+  overflow-y: auto;
   transition: opacity 0.8s ease-in-out;
 }
 .welcome-content {
+  width: 100%;
+  max-width: 960px;
   text-align: center;
   color: #fff;
   animation: fadeInDown 1.2s ease-out;
 }
 .welcome-title {
   font-family: 'Outfit', sans-serif !important;
-  font-size: 3.5rem;
+  font-size: clamp(2.2rem, 6vw, 3.5rem);
+  line-height: 1.2;
   font-weight: 700;
   background: linear-gradient(135deg, #a29bfe, #74b9ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
+  margin: 0 0 1.5rem;
 }
 .welcome-subtitle {
   font-family: 'Outfit', sans-serif !important;
   font-size: 1.2rem;
   color: rgba(255,255,255,0.6);
   letter-spacing: 2px;
+  line-height: 1.7;
+  margin: 0;
 }
 #enter-blog-btn {
   margin-top: 3rem;
@@ -3440,6 +3476,12 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
   box-shadow: 0 8px 32px rgba(0,0,0,0.2);
   color: #e0e0e0 !important;
+}
+.post-block,
+.header-inner,
+.sidebar-inner,
+.footer-inner {
+  border-radius: 10px;
 }
 .site-nav,
 .menu,
@@ -3621,6 +3663,39 @@ body {
   }
 }
 @media (max-width: 767px) {
+  body {
+    background-attachment: scroll !important;
+  }
+  #welcome-overlay {
+    padding: 24px;
+  }
+  .welcome-content {
+    max-width: 342px;
+  }
+  .welcome-top {
+    font-size: 0.95rem;
+  }
+  .welcome-title {
+    font-size: clamp(2rem, 10.5vw, 2.65rem);
+    line-height: 1.28;
+    margin-bottom: 1rem;
+  }
+  .welcome-subtitle {
+    font-size: 1rem;
+    letter-spacing: 1px;
+  }
+  #enter-blog-btn {
+    min-height: 44px;
+    margin-top: 2rem;
+    padding: 0.75rem 1.8rem;
+  }
+  .post-title {
+    font-size: 1.45em !important;
+    line-height: 1.45;
+  }
+  .post-meta-container {
+    line-height: 1.8;
+  }
   .post-body {
     font-size: 1em;
     line-height: 1.82;
@@ -3638,8 +3713,12 @@ body {
     width: 40px;
     height: 40px;
   }
+  .main-inner.index .post-block {
+    margin-bottom: 40px !important;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
+  .welcome-content,
   .status-dot,
   #random-post-btn.is-loading i {
     animation: none !important;
@@ -3648,6 +3727,7 @@ body {
   .post-body p a,
   .post-body li a,
   .post-body blockquote a,
+  .post-body img,
   #random-post-btn,
   .main-inner.index .post-block {
     transition: none !important;

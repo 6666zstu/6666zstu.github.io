@@ -1499,7 +1499,7 @@ pre code {
     transition: all 0.2s ease-in-out;
   }
   .links-of-author a::before {
-    background: #bf62ff;
+    background: #29eed4;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -3201,14 +3201,20 @@ h6,
 .post-body p {
   margin: 0 0 1.25em;
 }
-.post-body > p {
+.post-body > p,
+.post-body .hbe-content > p {
   text-indent: 2em;
 }
 .post-body > p:has(> img:only-child),
 .post-body > p:has(> picture:only-child),
 .post-body > p:has(> a:only-child > img:only-child),
 .post-body > p:has(> .mathjax-overflow:only-child),
-.post-body > p:has(> mjx-container[display="true"]:only-child) {
+.post-body > p:has(> mjx-container[display="true"]:only-child),
+.post-body .hbe-content > p:has(> img:only-child),
+.post-body .hbe-content > p:has(> picture:only-child),
+.post-body .hbe-content > p:has(> a:only-child > img:only-child),
+.post-body .hbe-content > p:has(> .mathjax-overflow:only-child),
+.post-body .hbe-content > p:has(> mjx-container[display="true"]:only-child) {
   text-indent: 0;
 }
 .post-body h2,

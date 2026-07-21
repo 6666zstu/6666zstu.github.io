@@ -22,15 +22,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"ai-lcs.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.28.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"mac"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":true,"color":"#6c5ce7","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.json","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="这是一篇私人记录，阅读全文需要密码。">
+    <meta name="description" content="这部分包含着答辩老师提供的信息，我的一些反思，还有关于后续例如skill的创建，workflow的搭建，甚至于简单的Agent的搭建等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一封信">
-<meta property="og:url" content="https://ai-lcs.github.io/2026/06/02/%E7%9E%91%E7%9B%AE/index.html">
+<meta property="og:title" content="关于数模workflow搭建的thinking和plan">
+<meta property="og:url" content="https://ai-lcs.github.io/2026/07/21/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%A8%A1workflow%E6%90%AD%E5%BB%BA%E7%9A%84thinking%E5%92%8Cplan/index.html">
 <meta property="og:site_name" content="LCS 的数学与 AI 世界">
-<meta property="og:description" content="这是一篇私人记录，阅读全文需要密码。">
+<meta property="og:description" content="这部分包含着答辩老师提供的信息，我的一些反思，还有关于后续例如skill的创建，workflow的搭建，甚至于简单的Agent的搭建等。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-02T09:36:24.000Z">
-<meta property="article:modified_time" content="2026-07-15T07:31:05.853Z">
+<meta property="article:published_time" content="2026-07-21T05:13:23.000Z">
+<meta property="article:modified_time" content="2026-07-21T05:30:16.116Z">
 <meta property="article:author" content="LCS">
 <meta property="article:tag" content="人工智能">
 <meta property="article:tag" content="数学">
@@ -39,13 +39,13 @@
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://ai-lcs.github.io/2026/06/02/%E7%9E%91%E7%9B%AE/">
+<link rel="canonical" href="https://ai-lcs.github.io/2026/07/21/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%A8%A1workflow%E6%90%AD%E5%BB%BA%E7%9A%84thinking%E5%92%8Cplan/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ai-lcs.github.io/2026/06/02/%E7%9E%91%E7%9B%AE/","path":"2026/06/02/瞑目/","title":"一封信"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://ai-lcs.github.io/2026/07/21/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%A8%A1workflow%E6%90%AD%E5%BB%BA%E7%9A%84thinking%E5%92%8Cplan/","path":"2026/07/21/关于数模workflow搭建的thinking和plan/","title":"关于数模workflow搭建的thinking和plan"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>一封信 | LCS 的数学与 AI 世界</title>
+<title>关于数模workflow搭建的thinking和plan | LCS 的数学与 AI 世界</title>
   
 
 
@@ -160,7 +160,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -173,6 +173,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EAI"><span class="nav-number">1.</span> <span class="nav-text">关于AI</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -241,7 +242,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://ai-lcs.github.io/2026/06/02/%E7%9E%91%E7%9B%AE/">
+    <link itemprop="mainEntityOfPage" href="https://ai-lcs.github.io/2026/07/21/%E5%85%B3%E4%BA%8E%E6%95%B0%E6%A8%A1workflow%E6%90%AD%E5%BB%BA%E7%9A%84thinking%E5%92%8Cplan/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://github.com/ai-lcs.png">
@@ -254,12 +255,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="一封信 | LCS 的数学与 AI 世界">
+      <meta itemprop="name" content="关于数模workflow搭建的thinking和plan | LCS 的数学与 AI 世界">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          一封信
+          关于数模workflow搭建的thinking和plan
         </h1>
 
         <div class="post-meta-container">
@@ -269,15 +270,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2026-06-02 17:36:24" itemprop="dateCreated datePublished" datetime="2026-06-02T17:36:24+08:00">2026-06-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-07-15 15:31:05" itemprop="dateModified" datetime="2026-07-15T15:31:05+08:00">2026-07-15</time>
+      <time title="创建时间：2026-07-21 13:13:23 / 修改时间：13:30:16" itemprop="dateCreated datePublished" datetime="2026-07-21T13:13:23+08:00">2026-07-21</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -296,14 +291,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>780</span>
+      <span>52</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span>1 分钟</span>
     </span>
 </div>
 
@@ -313,35 +308,9 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><div class="hbe hbe-container" id="hexo-blog-encrypt"
-     data-hbe-format="4"
-     data-wpm="密码不正确，请重试。"
-     data-whm="密码不正确，请重试。"
-     data-salt="a56e1404a8fa4cc60ff20c1fb0f4411e83535fcd8176862ec48af23e2568a2e8"
-     data-nonce="6af4d95c7344bd01d9b373c5"
-     data-kdf-iterations="600000"
-     data-auto-save="false">
-  <script id="hbeData" type="hbeData">
-    3e421150f4ce9420a696b44aa3cdb7cab677d34542aa33ef930d24879405923f84a2fb51b3d39bf2c93b7a9ee2cd65b4cd3b7479413e942cc8de5410aea1e2a1e5802118803f86df6b029fec5da1fa0fa5f88257b9f6af0aa31b2e96d33e054b74a352e26ad8cb361169df8bd53e35014f31743eb637a519e98832e6bb2dfe00b0a198a704ede227f134d9f0c9d88b8e29d7fadd6486bc509533710b73ce42696d4419372af63048dc3036e6cc85957a9cb68355acecb4b149a012f6eb410423d19902a5a9e2e794714b371923cac0ef80feb7ed71522b24c79c8c1876ea9141b38cf718ef38995568e1396aa9e630c53a5973b82cdfca26bac88f524233d479738e604a3c6a8fa04ca835269383a5ef0b1e9b21d9cdb315af90973ea319a8ce8292ec1e46d5eb5a25e54c7044fc5adb3789388dfde56828c107d1c1d31aa35ecd3d6597cea208de3e5ea3356ce9c6e0487bb5fd488eefae224e1cec9a71c2c718719bc335f27db4849eca6e7c384439ea81627b5be43f5e4fbce4bcbdcfd756bdf1a57af70a6fc127e025b466450025a2a67dc1fa552f4428c75245642a9c157c78da5af81767d960a8cc233ba76fda4993bd48fbddf8c8ecc833856beb0d967a921a5581fdb72d8ce842f5319b451fb8e8c4c02fd6bac6243a3e75566a4058dd89b00b15aeb9e820962c28932a91902556b98a2805187238ad769bade07e9b643fc271dd76449bcb4965e0cb88211054b60b5c69e80ebe24b5eed1bb9eb98b5f3959c192e0f55b2e234689222fe6d690d1171b553792d38382c97ef58b618bc0a92264f44df9e2f71afc2b5137b0181739641399b42d1074d236276c91a154a5edbc50818a852510c06aa28e30a7c2f0acb00cf489e8c0ed24a268b363b0d7856fc4d004810903d74307bd99e0edf8a72a7bd2d7b93d44467094270161a8ba64bdbe3a99715988aa8cbcfa2ede2d9316e9be1c771c2aad8f05965c37a3b7a4fc605868a0f3e5e27906e78077cedeb6375890413fe85da82d0e28de26745970076493b8e8ae70d81c69eafd48faccd474e310bd042a91f86bdade0ca0a9153b8de0cc5aa20e15ab093c92efb72a56468244e3f6766de41a70ab83a038164d12e124f5e50879731a267a35d2edbb8e50664973847f5bac6a457444097c59519626446113f73955d4eb227997f5fcffd0a3d1114ddd20a0d4989f3bfb34ad5e3adbe8ba9b1d738cb5ea755cf61586e1aa2dce24aa740852c2d911f26cc4641a545c512eca6631e1e991f57b602689025a532fbd78d355ae7c92b7c142dc2f9b826e8eb1a6bfa65a0fcefc2cd7759b26b078244f939bb1c1c4d63318a7c91e7a49605281d3980d82b4e11ff5c75f44e916c0fecc3ede87c428ad575f809704e69c6c62377912b8641f8e67cec6bc5e0192548d1cefa06c9e39dc4a9890083c2bea41e5bc49456fd45ae00808702e1c8e0dc0980ff56ef147f4691d2fb8a0932bc3f2c12ffd64de0e129c6af167613af752b7e8c82adba985ded733602882d391f0d0f5e49f97981570b6c618b18d934cabf37d3fc9da513876021a5ee74ac242aba75e04e49ea87f1b900d361ad47c1855ce227dc2e42519298e3f2f7069d8f628fefa8ab01bf975d19dea624a30f81ec3088e9cf4c8b5fc32a8096cc81790255f802cf0aba8f7da7acef2da096276332302408bf8cc7d0ad519069063d33b84514583756fef5bba38516168696dd576fc16a05ead88295f78133f4e999dc608b45ae68b0247358666e271278a8f6cde5b3cdfd4134e6e25a4989ed83f3fdfb5cd75e64d8d56ab247c845da8263545273569f4c931ede54b2f2e16c5a54563d4f657b7eb826f1f3d9a03e84cf759e925ebc8004664fb248baa7866e06b147d33c37882d55f0e8efb731eff5bc78d218ae0f8c690ca56ae65a92a57e0c31f6caf13e0a5fd0bdcd26c5c04bf670d39a17030867a2111339efa6711259ec92eeba75cf178a143d72ab91df21db0875a2d5c59f592c16b2ba00445f37d1ef662220a0cdef037f592e8c1564586ca639639c1a839872241235a011711163e90e99f92f5a083e88264f518274b084e61a58c68d0df65f0820625121ffc57cbd83590d47046f7eb361b90bae9fe0f176a86bbe941418cc57fd2170c9f6d58ae0c07d1e0fdcf5e9d6d4e663ae8f53b18de1fac4642a2729b68b434cf9d60c6ff54a3968a25e653551aff6d9df61edc522de9b36f76546133044af1b82ed167f14bb493dc67fa5fdda130492d19d985d70205562975a46e91ed96532ff6152f590ac6494f4465d655aea56a6e3c59959a96144c87d0a3980480504885125ddb3a3a72feef8e97c2cccf17d18c229cf2b01955fbef2871dd1ff940a1a26dded28b87777f5c47bae7bf94ac85ff92faa0760764a6b5165f49fb8449566d549d8920117b8ae786ea262a138d24548045b8826c1bdc54b23a4d0eb0307c404458a4d439f9bb6d1a3c4a6fde541649ae6a0d36bf158a810495c2b553cbf6eae85df1952dc336600c5a0c3e776240812d0ef5a4c202ca6336986ac4c7146e6cd747ac763db155f23c04f083a55519f8f6abf985af3d04ccbe10b758feb66a4dbce748e2492ab204ac5fdab1fc3040729d290ca70df6e8dba4984889234f6c5620535bb942fb21ef14736a247bf26fd595926a82a1d78554c8985d0ca0982afb5bf681d61763c638907c684b1cdca1d96930c8f8da911909264d7b4b3e97a7c346c18240d459015165531dec749f8055e2ea685f0dbcf789b2d1358ec86be615df55420e1c0e7566d709da405f058f9b1d51a8fc29d70e0e70ff3d0bb6858830d09367fb95c312ef97c3d261b4c96683911f68af20b50554abe3de49d3d349b2d025d323bbd2678a525078e6b10383a3e0345faa0b2247d72660addc1a08ae352207f14a4ecc504de3512d003b75300dd7b5991db7871807c9c16eb1dd3ee8b667b93cbf27fe6e732a2d92d07c389dcf03fb51628a72c3518b4ff5081eac25df346f4542532215fdfce82ab6d5387ffbe805b616c2e1d69eaed244a86c69002fa74c04dffb2b033f8795caf59e57887537c2d13eabf047acd4b6da703dd0fc852e884adf4f2b5185d28ed33856a9fb371e269c2aa271f4ad60db2a68ff0ad9a796dcc2ecf15e3f125c2270465108372ed780bdb431376fe5cbb6e358d1240d60ef551bdc1f9a1f193db04f6cfcf7f5a5dba4776cdf78274f60e8d64ec8a1f3c617515b2c5ad42a3c80d7d1e3c50a3db53a51e3abf650a842e97089613c06f7370201d437a84dde398838d3ef303d2057b6c939f8a1fbb2f1b2ca1f9c022fcd3a8b458a171e8dbac864e0735d62643ce018b1a2329271ac9a5b15cd7044b11ecf3d3486d5ef69447227f564d9ce238c11810a04714788ddd2bd742d013e009b2eabb80d63e45366b0efcfd8b1753a1c8217cd30e94300068646ca5000dc4ebd6aa7c466e5b44f56b64085dc48236d4fbe651a8d2dc3ec6256b211423ceafa3d7b683811ae9cc41eb5ca3474e841669f309806330de2f054feb5ac3cc037265ed408c7af7c842163f562c625ee8c3adda5f07ab53ff38317ac33164fc946eb9acda510fdb429675897dd77e9e4ef2fe98d21f4c6f98d29760bdbb23835b843759d05924bb35b00ad81cf744897c5acfeeffa7e0e5687b97ed5b3cb6b8367a5548aa53ba4e2c8b8fa2e4e78bff5a39a86d2f9be1365c037af1823528231c0940187a07517b848bca9ba438c0661c3c104e783ed3eaf39738b4194e5ce3fe946d1bad7796f651568f34856
-  </script>
-  <div class="hbe hbe-content">
-    <form id="hbeForm" class="hbe hbe-form" onsubmit="return false">
-      <div class="hbe hbe-input hbe-input-xray">
-      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">请输入访问密码</span>
-      </label>
-      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">
-        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>
-        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>
-      </svg>
-    </div>
-      <button class="hbe hbe-button" type="submit">解锁文章</button>
-      <div class="hbe hbe-error" role="alert" aria-live="polite"></div>
-    </form>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.9e70f1e1d2.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">
+    <div class="post-body" itemprop="articleBody"><p>这部分包含着答辩老师提供的信息，我的一些反思，还有关于后续例如skill的创建，workflow的搭建，甚至于简单的Agent的搭建等。</p>
+<span id="more"></span>
+<h2 id="关于AI"><a href="#关于AI" class="headerlink" title="关于AI"></a>关于AI</h2>
     </div>
 
     
@@ -354,14 +323,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2026/05/30/%E6%83%85%E7%BB%AA/" rel="prev" title="情绪">
-                  <i class="fa fa-angle-left"></i> 情绪
+                <a href="/2026/07/19/%E5%AF%92%E5%81%87%E8%AE%A1%E5%88%92%E4%B9%8B%E7%BB%86%E5%8C%96%E6%8E%A8%E5%B9%BF/" rel="prev" title="暑假计划之细化推广">
+                  <i class="fa fa-angle-left"></i> 暑假计划之细化推广
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2026/06/04/%E5%86%8D%E5%86%99%E4%B8%80%E5%B0%81%E4%BF%A1/" rel="next" title="再写一封信">
-                  再写一封信 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
